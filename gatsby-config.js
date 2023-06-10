@@ -6,10 +6,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://gatsbydatocmshomepage.gatsbyjs.io/",
-    title: "Gatsby DatoCMS Homepage Starter",
-    author: `Gatsby`,
-    description: "A Gatsby Starter for building homepages with DatoCMS",
+    siteUrl: "https://v2-upkram.vinayg.me",
+    title: "Upkram Educational Foundation - Non-Government Organizationr",
+    author: `Vinay Gopalaiah - CodeParva`,
+    description: "Through working with public primary schools and tribal children in rural areas, we focus on Foundational literacy, teacher education, and building libraries for educational equity.",
   },
   plugins: [
     {
