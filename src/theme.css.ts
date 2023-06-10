@@ -35,6 +35,7 @@ const fontSizes = {
   5: "32px",
   6: "48px",
   7: "64px",
+  8: "72px"
 }
 
 const fontWeights = {
@@ -46,8 +47,8 @@ const fontWeights = {
 }
 
 const fonts = {
-  text: '"DM Sans", sans-serif',
-  heading: '"DM Sans", sans-serif',
+  text: '"Poppins", sans-serif',
+  heading: '"Poppins", sans-serif',
   mono: "DM Mono, Menlo, monospace",
 }
 

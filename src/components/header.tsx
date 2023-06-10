@@ -108,7 +108,7 @@ export default function Header() {
             <BrandLogo />
           </NavLink>
           <nav>
-            <FlexList gap={4}>
+            <FlexList gap={5}>
               {navItems &&
                 navItems.map((navItem) => (
                   <li key={navItem.id}>
@@ -124,7 +124,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>
+          <div>{cta && <Button variant="red" to={cta.href}>{cta.text}</Button>}</div>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
