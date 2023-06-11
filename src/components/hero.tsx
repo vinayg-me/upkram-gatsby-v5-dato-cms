@@ -11,6 +11,7 @@ import {
   Subhead,
   Text
 } from "./ui"
+import { heroHeading, skewedBackground, textOverlay } from "./hero.css"
 
 export interface HeroProps {
   image: HomepageImage
@@ -59,14 +60,11 @@ export default function Hero(props: HeroProps) {
             }}
           >
             {/* Any content here will be centered in the component */}
-            <div style={
-              {
-                width: '50%',
-                backgroundColor: 'white'
-              }
-            }>
-              <h1>{h1}</h1>
-              <h3>{subhead}</h3>
+            <div className={skewedBackground}>
+              <div className={textOverlay}>
+                <h1 className={heroHeading}>{h1}</h1>
+                <p>{subhead}</p>
+              </div>
             </div>
           </div>
         </div>
