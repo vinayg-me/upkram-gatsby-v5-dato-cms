@@ -11,7 +11,7 @@ import {
   Subhead,
   Text
 } from "./ui"
-import { heroHeading, skewedBackground, textOverlay } from "./hero.css"
+import { heroHeading, heroSubheading, skewedBackground, textOverlay } from "./hero.css"
 
 export interface HeroProps {
   image: HomepageImage
@@ -31,13 +31,13 @@ export default function Hero(props: HeroProps) {
   } = props;
   return (
     <Section>
-      <Container>
         <div style={{ display: "grid" }}>
           {/* You can use a GatsbyImage component if the image is dynamic */}
           <StaticImage
             style={{
               gridArea: "1/1",
               // You can set a maximum height for the image, if you wish.
+              minHeight: 240,
               maxHeight: 600,
             }}
             layout="fullWidth"
@@ -63,12 +63,11 @@ export default function Hero(props: HeroProps) {
             <div className={skewedBackground}>
               <div className={textOverlay}>
                 <h1 className={heroHeading}>{h1}</h1>
-                <p>{subhead}</p>
+                <p className={heroSubheading}>{subhead}</p>
               </div>
             </div>
           </div>
         </div>
-      </Container>
     </Section>
   )
 }

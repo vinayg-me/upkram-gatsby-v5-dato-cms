@@ -3,11 +3,17 @@ import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
 
 const breakpoints = ["40em", "52em", "64em"]
+const responsiveBreakpoints = [320, 480, 768, 1024, 1200]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
   medium: `screen and (min-width: ${breakpoints[1]})`,
   large: `screen and (min-width: ${breakpoints[2]})`,
+  smallMobile: `screen and (max-width: ${responsiveBreakpoints[1]}px)`,
+  mobile: `screen and (min-width: ${responsiveBreakpoints[1]+1}px) and (max-width: ${responsiveBreakpoints[2]}px)`,
+  tablet: `screen and (min-width: ${responsiveBreakpoints[2]+1}px) and (max-width: ${responsiveBreakpoints[3]}px)`,
+  desktop: `screen and (min-width: ${responsiveBreakpoints[3]+1}px) and (max-width: ${responsiveBreakpoints[4]}px)`,
+  desktopUp: `screen and (min-width: ${responsiveBreakpoints[4]+1}px)`,
 }
 
 export const container = style({

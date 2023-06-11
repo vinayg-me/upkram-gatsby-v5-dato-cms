@@ -38,6 +38,10 @@ const fontSizes = {
   8: "72px"
 }
 
+const customFontSizes = {
+  0: '36px'
+}
+
 const fontWeights = {
   normal: "400",
   medium: "500",
@@ -94,6 +98,7 @@ export const theme = createGlobalTheme(":root", {
   colors,
   space,
   fontSizes,
+  customFontSizes,
   fontWeights,
   fonts,
   lineHeights,
