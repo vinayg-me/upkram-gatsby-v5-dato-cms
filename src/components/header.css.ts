@@ -43,7 +43,7 @@ export const mobileNavSVGColorWrapper = styleVariants({
 export const mobileNavOverlay = style({
   position: "absolute",
   width: "100vw",
-  height: "100vh",
+  height: "auto",
   paddingTop: theme.space[4],
   background: theme.colors.primary,
   zIndex: 1,
@@ -56,7 +56,7 @@ export const mobileNavOverlay = style({
 
 export const mobileNavLink = style({
   display: "block",
-  color: theme.colors.background,
+  color: theme.colors.red,
   fontSize: theme.fontSizes[4],
   paddingTop: theme.space[2],
   paddingBottom: theme.space[2],

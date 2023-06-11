@@ -21,6 +21,7 @@ import {
 } from "./header.css"
 import NavItemGroup, { NavItemGroupNavItem } from "./nav-item-group"
 import BrandLogo from "./brand-logo"
+import { theme } from "../theme.css"
 
 type NavItem = {
   id: string
@@ -129,7 +130,7 @@ export default function Header() {
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
         <Space size={2} />
-        <Flex variant="spaceBetween">
+        <Flex variant="stretch" wrap={false}>
           <span
             className={
               mobileNavSVGColorWrapper[isOpen ? "reversed" : "primary"]
@@ -144,7 +145,9 @@ export default function Header() {
             <Space />
             <div>
               {cta && (
-                <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
+                <Button to={cta.href} variant="red" style={{
+                  textAlign: 'center'
+                }}>
                   {cta.text}
                 </Button>
               )}
@@ -154,10 +157,10 @@ export default function Header() {
                 title="Toggle menu"
                 onClick={() => setOpen(!isOpen)}
                 className={
-                  mobileNavSVGColorWrapper[isOpen ? "reversed" : "primary"]
+                  mobileNavSVGColorWrapper["red"]
                 }
               >
-                {isOpen ? <X /> : <Menu />}
+                {isOpen ? <X color={theme.colors.muted} /> : <Menu />}
               </InteractiveIcon>
             </Nudge>
           </Flex>

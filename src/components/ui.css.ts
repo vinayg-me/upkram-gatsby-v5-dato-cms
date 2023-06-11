@@ -156,6 +156,7 @@ export const list = style({
   listStyle: "none",
   padding: 0,
   margin: 0,
+  textAlign: 'center'
 })
 
 export const padding = styleVariants(theme.space, (padding) => ({ padding }))
@@ -623,7 +624,7 @@ export const interactiveIcon = style({
   border: "none",
   cursor: "pointer",
   width: 48,
-  height: 48,
+  height: 48
 })
 
 export const visuallyHidden = style({

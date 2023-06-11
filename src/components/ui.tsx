@@ -33,6 +33,7 @@ interface BaseProps {
   as?: React.ElementType | React.FC
   cx?: string[]
   className?: string
+  style?: object
 }
 
 export function Base({
@@ -76,6 +77,7 @@ export function Flex({
   cx: _cx = [],
   ...props
 }: WithChildren<FlexProps>) {
+  console.debug('Wrap ->', wrap)
   return (
     <Base
       cx={[
