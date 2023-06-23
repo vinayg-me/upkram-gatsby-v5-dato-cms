@@ -31,17 +31,20 @@ export const textOverlay = style({
     padding: '0 1rem',
     zIndex: 2,
     flexDirection: 'column',
-    marginLeft: theme.space[2],
-    marginRight: theme.space[2],
+    marginLeft: 'auto',
+    marginRight: 'auto',
     "@media": {
         [media.desktopUp]: {
             transform: 'skewX(15deg)',
             transformOrigin: 'top right',
             position: 'relative',
             alignItems: 'start',
-            height: '100%'
+            height: '100%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
         },
     },
+    width: '80%'
 })
 
 export const heroHeading = style({
@@ -63,7 +66,7 @@ export const heroHeading = style({
 })
 
 export const heroSubheading = style({
-    fontSize: theme.customFontSizes[0],
+    fontSize: theme.fontSizes[5],
     fontWeight: theme.fontWeights.semibold,
     marginTop: theme.space[2],
     marginBottom: theme.space[2],
@@ -78,6 +81,11 @@ export const heroSubheading = style({
         },
         [media.tablet]: {
             fontSize: theme.fontSizes[4],
+            textAlign: 'center'
+        },
+        [media.desktop]: {
+            fontSize: theme.fontSizes[5],
+            fontWeight: theme.fontWeights.semibold,
             textAlign: 'center'
         },
     },
