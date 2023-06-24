@@ -39,7 +39,8 @@ const fontSizes = {
 }
 
 const customFontSizes = {
-  0: '36px'
+  0: '36px',
+  1: '20px' 
 }
 
 const fontWeights = {

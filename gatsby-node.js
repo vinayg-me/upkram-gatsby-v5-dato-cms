@@ -299,6 +299,22 @@ exports.createSchemaCustomization = async ({ actions }) => {
       entityPayload: JSON
     }
 
+    interface LearningCrisisBlock implements Node {
+      id: ID!
+      description: String
+      title: String
+    }
+
+    interface HomepageIntro implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      description: String
+      content: [LearningCrisisBlock]
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
     interface Homepage implements Node {
       id: ID!
       title: String
@@ -592,6 +608,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink]
     }
 
+    type DatoCmsLearningCrisisBlock implements Node & LearningCrisisBlock @dontInfer {
+      id: ID!
+      title: String
+      description: String
+    }
+
     type DatoCmsHomepageProductList implements Node & HomepageBlock & HomepageProductList
       @dontInfer {
       id: ID!
@@ -602,6 +624,16 @@ exports.createSchemaCustomization = async ({ actions }) => {
       kicker: String
       text: String
       content: [HomepageProduct]
+    }
+
+    type DatoCmsHomepageIntro implements Node & HomepageBlock & HomepageIntro
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      description: String
+      content: [LearningCrisisBlock]
     }
 
     type DatoCmsHomepage implements Node & Homepage @dontInfer {

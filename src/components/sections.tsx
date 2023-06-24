@@ -11,6 +11,7 @@ import { AboutHeroProps } from "./about-hero"
 import { AboutStatListProps } from "./about-stat-list"
 import { AboutLeadershipProps } from "./about-leadership"
 import { AboutLogoListProps } from "./about-logo-list"
+import { HomepageIntroProps } from "./homepage-intro"
 
 export { default as HomepageHero } from "./hero"
 export { default as HomepageFeatureList } from "./feature-list"
@@ -20,6 +21,7 @@ export { default as HomepageTestimonialList } from "./testimonial-list"
 export { default as HomepageStatList } from "./stat-list"
 export { default as HomepageCta } from "./cta"
 export { default as HomepageProductList } from "./product-list"
+export { default as HomepageIntro } from "./homepage-intro"
 export { default as AboutHero } from "./about-hero"
 export { default as AboutStatList } from "./about-stat-list"
 export { default as AboutLeadership } from "./about-leadership"
@@ -38,6 +40,7 @@ export type SectionProps =
   | AboutStatListProps
   | AboutLeadershipProps
   | AboutLogoListProps
+  | HomepageIntroProps
 
 type Blocktypes =
   | "HomepageHero"
@@ -48,6 +51,7 @@ type Blocktypes =
   | "HomepageStatList"
   | "HomepageCta"
   | "HomepageProductList"
+  | "HomepageIntro"
   | "AboutHero"
   | "AboutStatList"
   | "AboutLeadership"
@@ -67,6 +71,7 @@ export type HomepageBlock =
   | WithBlocktype<"HomepageStatList", StatListProps>
   | WithBlocktype<"HomepageCta", CtaProps>
   | WithBlocktype<"HomepageProductList", ProductListProps>
+  | WithBlocktype<"HomepageIntro", HomepageIntroProps>
   | WithBlocktype<"AboutHero", AboutHeroProps>
   | WithBlocktype<"AboutStatList", AboutStatListProps>
   | WithBlocktype<"AboutLeadership", AboutLeadershipProps>

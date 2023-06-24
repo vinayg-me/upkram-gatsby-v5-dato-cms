@@ -190,6 +190,12 @@ interface TextProps extends BaseProps {
   center?: boolean
   bold?: boolean
 }
+interface EmbeddedTextProps extends BaseProps {
+  variant?: styles.TextVariants
+  center?: boolean
+  bold?: boolean
+  dangerouslySetInnerHTML?: any
+}
 
 export function Text({
   variant = "body",
@@ -197,6 +203,24 @@ export function Text({
   bold = false,
   ...props
 }: WithChildren<TextProps>) {
+  return (
+    <Base
+      cx={[
+        styles.text[variant],
+        center && styles.text.center,
+        bold && styles.text.bold,
+      ]}
+      {...props}
+    />
+  )
+}
+
+export function EmbeddedText({
+  variant = "body",
+  center = false,
+  bold = false,
+  ...props
+}: WithChildren<EmbeddedTextProps>) {
   return (
     <Base
       cx={[
