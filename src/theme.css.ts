@@ -82,12 +82,13 @@ const sizes = {
   navIconSmall: "30px",
 }
 
-export type Radii = "button" | "large" | "circle"
+export type Radii = "button" | "large" | "circle" | "card"
 
 const radii: Record<Radii, string> = {
   button: "10px",
   large: "24px",
   circle: "99999px",
+  card: "16px",
 }
 
 const shadows = {

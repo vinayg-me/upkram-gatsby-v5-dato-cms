@@ -315,6 +315,23 @@ exports.createSchemaCustomization = async ({ actions }) => {
       entityPayload: JSON
     }
 
+    interface FocusAreaBlock implements Node {
+      id: ID!
+      focusText: String
+      focusImage: HomepageImage
+    }
+
+    interface HomepageOurFocusArea implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      sectionTitle: String
+      sectionDescription: String
+      focusAreaItems: [FocusAreaBlock]
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
     interface Homepage implements Node {
       id: ID!
       title: String
@@ -607,13 +624,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       links: [HomepageLink]
     }
-
-    type DatoCmsLearningCrisisBlock implements Node & LearningCrisisBlock @dontInfer {
-      id: ID!
-      title: String
-      description: String
-    }
-
+    
     type DatoCmsHomepageProductList implements Node & HomepageBlock & HomepageProductList
       @dontInfer {
       id: ID!
@@ -626,6 +637,13 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [HomepageProduct]
     }
 
+    type DatoCmsLearningCrisisBlock implements Node & LearningCrisisBlock @dontInfer {
+      id: ID!
+      title: String
+      description: String
+    }
+
+
     type DatoCmsHomepageIntro implements Node & HomepageBlock & HomepageIntro
       @dontInfer {
       id: ID!
@@ -634,6 +652,24 @@ exports.createSchemaCustomization = async ({ actions }) => {
       entityPayload: JSON
       description: String
       content: [LearningCrisisBlock]
+    }
+
+    type DatoCmsFocusAreaBlock implements Node & FocusAreaBlock @dontInfer {
+      id: ID!
+      focusText: String
+      focusImage: HomepageImage
+    }
+
+
+    type DatoCmsHomepageOurFocusArea implements Node & HomepageBlock & HomepageOurFocusArea
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      sectionTitle: String
+      sectionDescription: String
+      focusAreaItems: [FocusAreaBlock]
     }
 
     type DatoCmsHomepage implements Node & Homepage @dontInfer {
@@ -782,4 +818,3 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.tsx"),
   })
 }
-      

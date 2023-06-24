@@ -17,8 +17,6 @@ export interface HomepageIntroProps {
 }
 
 export default function HomepageIntro(props: HomepageIntroProps) {
-    console.log("🚀 ~ file: homepage-intro.tsx:17 ~ HomepageIntro ~ props:", props)
-
     const LearningCrisisBlock = ({ id, title, description }) => (
         <div key={id} className="learningCrisisBlockContainer">
             <StyledTitle text={title} n={2} />
