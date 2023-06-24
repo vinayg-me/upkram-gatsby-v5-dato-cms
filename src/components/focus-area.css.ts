@@ -15,4 +15,13 @@ export const FocusAreaBlock = style({
     backgroundColor: theme.colors.primary,
     boxShadow: "2px 4px 5px 0px rgba(0, 0, 0, 0.25)",
     padding: "32px 24px",
+    minWidth: 350,
+    "@media": {
+        [media.smallMobile]: {
+            minWidth: 300,
+        },
+        [media.mobile]: {
+            fontSize: 320,
+        }
+    },
 })
