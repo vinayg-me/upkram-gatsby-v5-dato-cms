@@ -332,6 +332,17 @@ exports.createSchemaCustomization = async ({ actions }) => {
       entityPayload: JSON
     }
 
+    interface HomepageOurWork implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      sectionTitle: String
+      sectionDescription: String
+      sectionImage: HomepageImage
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
     interface Homepage implements Node {
       id: ID!
       title: String
@@ -670,6 +681,17 @@ exports.createSchemaCustomization = async ({ actions }) => {
       sectionTitle: String
       sectionDescription: String
       focusAreaItems: [FocusAreaBlock]
+    }
+    
+    type DatoCmsHomepageOurWork implements Node & HomepageBlock & HomepageOurWork
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      sectionTitle: String
+      sectionDescription: String
+      sectionImage: HomepageImage
     }
 
     type DatoCmsHomepage implements Node & Homepage @dontInfer {
