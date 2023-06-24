@@ -4,7 +4,7 @@ import { media } from "../components/ui.css"
 
 export const HeadingStyle = style({
     color: theme.colors.text,
-    fontSize: theme.customFontSizes[5],
+    fontSize: theme.fontSizes[5],
     fontWeight: theme.fontWeights.semibold,
     "@media": {
         [media.smallMobile]: {

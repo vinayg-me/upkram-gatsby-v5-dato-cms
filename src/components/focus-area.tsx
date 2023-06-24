@@ -5,6 +5,7 @@ import * as styles from "./homepage-intro.css"
 import StyledTitle from "../utils/StyledTitle"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as focusAreaStyles from "./focus-area.css"
+import { theme } from "../theme.css"
 
 
 export type FocusAreaBlock = {
@@ -36,7 +37,9 @@ export default function HomepageFocusArea(props: HomepageFocusAreaProps) {
     return (
         <Section>
             <Container>
-                <StyledTitle text={sectionTitle} n={1} />
+                <StyledTitle text={sectionTitle} n={1} style={{
+                    fontSize: theme.customFontSizes[2]
+                }} />
                 <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: sectionDescription }}></EmbeddedText>
                 <FlexList gap={4} variant="responsive" alignItems="spaceBetween">
                     {focusAreaItems.map((focusArea: FocusAreaBlock) => (

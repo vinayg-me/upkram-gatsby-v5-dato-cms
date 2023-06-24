@@ -17,3 +17,9 @@ export const EmbeddedTextStyle = style({
         },
     },
 })
+
+export const LearningCrisisContainer = style({
+    borderRadius: theme.radii.card,
+    backgroundColor: theme.colors.primary,
+    padding: "24px 32px",
+})

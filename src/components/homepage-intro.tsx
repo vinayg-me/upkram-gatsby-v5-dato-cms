@@ -29,7 +29,9 @@ export default function HomepageIntro(props: HomepageIntroProps) {
         <Section>
             <Container>
                 <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: props.description }}></EmbeddedText>
-                <LearningCrisisBlock id={block.id} title={block.title} description={block.description} />
+                <div className={styles.LearningCrisisContainer}>
+                    <LearningCrisisBlock id={block.id} title={block.title} description={block.description} />
+                </div>
             </Container>
         </Section>
     )

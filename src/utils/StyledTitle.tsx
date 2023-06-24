@@ -3,7 +3,7 @@ import { Heading } from '../components/ui';
 import { theme } from '../theme.css';
 import * as styles from './StyleTitle.css';
 
-export default function StyledTitle({ text, n }) {
+export default function StyledTitle({ text, n, style = {} }) {
     // Split the title into an array of words
     const words = text.split(' ');
 
@@ -20,5 +20,5 @@ export default function StyledTitle({ text, n }) {
         );
     });
 
-    return <Heading className={styles.HeadingStyle} >{styledWords}</Heading>;
+    return <Heading className={styles.HeadingStyle} style={style} >{styledWords}</Heading>;
 }
