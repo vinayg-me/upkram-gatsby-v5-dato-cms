@@ -555,7 +555,7 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
   ],
 })
 
-export type Backgrounds = "primary" | "muted"
+export type Backgrounds = "primary" | "muted" | "dark"
 
 export const backgrounds: Record<Backgrounds, string> = styleVariants({
   primary: {
@@ -566,6 +566,10 @@ export const backgrounds: Record<Backgrounds, string> = styleVariants({
     color: theme.colors.primary,
     backgroundColor: theme.colors.muted,
   },
+  dark: {
+    color: theme.colors.white,
+    backgroundColor: theme.colors.dark,
+  }
 })
 
 export const blockquote = style({

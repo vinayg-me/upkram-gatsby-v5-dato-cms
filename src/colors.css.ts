@@ -6,5 +6,6 @@ export const colors = {
   muted: "#EB5757",
   active: "#B20000",
   black: "#000",
-  white: "#FFFFFF"
+  white: "#FFFFFF",
+  dark: "#444"
 }
