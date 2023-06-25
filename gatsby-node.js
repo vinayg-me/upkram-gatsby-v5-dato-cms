@@ -332,6 +332,25 @@ exports.createSchemaCustomization = async ({ actions }) => {
       entityPayload: JSON
     }
 
+    interface Program implements Node {
+      id: ID!
+      programContent: String
+      programShortDescription: String
+      programTitle: String
+      programImage: HomepageImage
+    }
+
+    interface HomepageOurProgram implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      sectionTitle: String
+      sectionDescription: String
+      listOfPrograms: [Program]
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
     interface HomepageOurWork implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -681,6 +700,26 @@ exports.createSchemaCustomization = async ({ actions }) => {
       sectionTitle: String
       sectionDescription: String
       focusAreaItems: [FocusAreaBlock]
+    }
+
+    type DatoCmsProgram implements Node & Program @dontInfer {
+      id: ID!
+      programContent: String
+      programShortDescription: String
+      programTitle: String
+      programImage: HomepageImage
+    }
+
+
+    type DatoCmsHomepageOurProgram implements Node & HomepageBlock & HomepageOurProgram
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      sectionTitle: String
+      sectionDescription: String
+      listOfPrograms: [Program]
     }
     
     type DatoCmsHomepageOurWork implements Node & HomepageBlock & HomepageOurWork

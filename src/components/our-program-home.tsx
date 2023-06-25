@@ -7,30 +7,33 @@ import * as focusAreaStyles from "./focus-area.css"
 import { theme } from "../theme.css"
 
 
-export type FocusAreaBlock = {
+export type Program = {
     id: any;
-    focusText: String;
-    focusImage: HomepageImage;
+    programContent: String;
+    programShortDescription: String;
+    programTitle: String;
+    programImage: HomepageImage;
 }
-export interface HomepageFocusAreaProps {
+export interface HomepageOurProgramProps {
     id: any
     sectionDescription: String
     sectionTitle: String
-    focusAreaItems: FocusAreaBlock[]
+    listOfPrograms: Program[]
 }
 
-export default function HomepageFocusArea(props: HomepageFocusAreaProps) {
-    const { sectionDescription, sectionTitle, focusAreaItems = [] } = props;
-    const FocusAreaBlock = ({ id, focusImage, focusText }) => (
-        <Box center className={focusAreaStyles.FocusAreaBlock}>
-            {focusImage && (
+export default function HomepageOurProgram(props: HomepageOurProgramProps) {
+    const { sectionDescription, sectionTitle, listOfPrograms = [] } = props;
+    const SingleProgram = ({ id, programContent, programShortDescription, programTitle, programImage }) => (
+        <Box key={id} center className={focusAreaStyles.FocusAreaBlock}>
+            {programImage && (
                 <Icon
-                    alt={focusImage.alt}
-                    image={focusImage.gatsbyImageData}
+                    alt={programImage.alt}
+                    image={programImage.gatsbyImageData}
                     size="xlarge"
                 />
             )}
-            <Text>{focusText}</Text>
+            <Text>{programTitle}</Text>
+            <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: programShortDescription }}></EmbeddedText>
         </Box>
     )
     return (
@@ -41,9 +44,9 @@ export default function HomepageFocusArea(props: HomepageFocusAreaProps) {
                 }} />
                 <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: sectionDescription }}></EmbeddedText>
                 <FlexList gap={4} variant="responsive" alignItems="spaceBetween">
-                    {focusAreaItems.map((focusArea: FocusAreaBlock) => (
-                        <li key={focusArea.id}>
-                            <FocusAreaBlock {...focusArea} />
+                    {listOfPrograms.map((program: Program) => (
+                        <li key={program.id}>
+                            <SingleProgram {...program} />
                         </li>
                     ))}
                 </FlexList>
@@ -53,19 +56,20 @@ export default function HomepageFocusArea(props: HomepageFocusAreaProps) {
 }
 
 export const query = graphql`
-    fragment HomepageOurFocusAreaContent on HomepageOurFocusArea {
+    fragment HomepageOurProgramContent on HomepageOurProgram {
         id
         blocktype
         sectionDescription
         sectionTitle
-        focusAreaItems {
-          focusImage {
+        listOfPrograms {
+          programContent
+          programShortDescription
+          programTitle
+          programImage {
             alt
             id
             gatsbyImageData
           }
-          id
-          focusText
         }
         originalId
     }
