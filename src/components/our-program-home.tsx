@@ -1,10 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { Section, Container, Heading, Text, EmbeddedText, HomepageImage, FlexList, Box, Icon } from "./ui"
+import { Section, Container, Heading, Text, EmbeddedText, HomepageImage, FlexList, Box, Icon, Link } from "./ui"
 import * as styles from "./homepage-intro.css"
 import StyledTitle from "../utils/StyledTitle"
-import * as focusAreaStyles from "./focus-area.css"
+import * as ourProgramStyles from "./our-program-home.css"
 import { theme } from "../theme.css"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 
 export type Program = {
@@ -23,19 +24,29 @@ export interface HomepageOurProgramProps {
 
 export default function HomepageOurProgram(props: HomepageOurProgramProps) {
     const { sectionDescription, sectionTitle, listOfPrograms = [] } = props;
-    const SingleProgram = ({ id, programContent, programShortDescription, programTitle, programImage }) => (
-        <Box key={id} center className={focusAreaStyles.FocusAreaBlock}>
-            {programImage && (
-                <Icon
-                    alt={programImage.alt}
-                    image={programImage.gatsbyImageData}
-                    size="xlarge"
-                />
-            )}
-            <Text>{programTitle}</Text>
+    const SingleProgram = ({ id, programShortDescription, programTitle, programImage, featured = false }) => (
+        <Box key={id} className={featured ? ourProgramStyles.OurProgramBlock : ourProgramStyles.Column}>
+            <div className={ourProgramStyles.OurProgramImageContainer}>
+                {programImage && (
+                    <GatsbyImage
+                        alt={programImage.alt}
+                        image={programImage.gatsbyImageData}
+                        className="ourProgramImage"
+
+                    />
+                )}
+            </div>
+
+            <Text className={ourProgramStyles.OurProgramBlockTitle}>{programTitle}</Text>
             <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: programShortDescription }}></EmbeddedText>
+            <div className={ourProgramStyles.ReadMoreButtonContainer}>
+                <Link to="/programs" className={ourProgramStyles.ReadMoreButton}>Read More</Link>
+            </div>
         </Box>
     )
+    const [firstProgram, secondProgram, thirdProgram, ..._] = listOfPrograms;
+    const restOfPrograms = [secondProgram, thirdProgram];
+
     return (
         <Section>
             <Container>
@@ -43,13 +54,12 @@ export default function HomepageOurProgram(props: HomepageOurProgramProps) {
                     fontSize: theme.customFontSizes[2]
                 }} />
                 <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: sectionDescription }}></EmbeddedText>
-                <FlexList gap={4} variant="responsive" alignItems="spaceBetween">
-                    {listOfPrograms.map((program: Program) => (
-                        <li key={program.id}>
-                            <SingleProgram {...program} />
-                        </li>
+                <SingleProgram {...firstProgram} featured />
+                <div className={ourProgramStyles.RowContainer}>
+                    {restOfPrograms.map((program: Program) => (
+                        <SingleProgram key={program.id} {...program} />
                     ))}
-                </FlexList>
+                </div>
             </Container>
         </Section>
     )
