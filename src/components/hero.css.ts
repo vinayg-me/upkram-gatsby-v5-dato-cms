@@ -15,8 +15,7 @@ export const skewedBackground = style({
             transformOrigin: 'top right',
             width: '33%'
         },
-    },
-    zIndex: 1
+    }
 })
 
 export const textOverlay = style({
@@ -29,7 +28,6 @@ export const textOverlay = style({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0 1rem',
-    zIndex: 2,
     flexDirection: 'column',
     marginLeft: 'auto',
     marginRight: 'auto',
