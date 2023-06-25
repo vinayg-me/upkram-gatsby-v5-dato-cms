@@ -13,12 +13,14 @@ import {
   Avatar,
   HomepageImage,
 } from "./ui"
+import StyledTitle from "../utils/StyledTitle"
 
 interface TestimonialProps {
   id: string
   avatar: HomepageImage
   quote: string
   source: string
+  jobTitle: string
 }
 
 function Testimonial(props: TestimonialProps) {
@@ -32,8 +34,11 @@ function Testimonial(props: TestimonialProps) {
           {props.quote}
         </Text>
         <figcaption>
-          <Text as="cite" bold variant="caps">
+          <Text bold variant="caps">
             {props.source}
+          </Text>
+          <Text bold variant="caps">
+            {props.jobTitle}
           </Text>
         </figcaption>
       </Blockquote>
@@ -51,15 +56,10 @@ export default function TestimonialList(props: TestimonialListProps) {
   return (
     <Section>
       <Container>
-        <Box center>
-          <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
-            {props.heading}
-          </Heading>
-        </Box>
+        <StyledTitle text={props.heading} n={1} />
         <FlexList gutter={3} variant="start" responsive wrap>
           {props.content.map((testimonial, index) => (
-            <Box as="li" key={testimonial.id + index} width="half" padding={3}>
+            <Box as="li" key={testimonial.id + index} width="full" padding={3}>
               <Testimonial {...testimonial} />
             </Box>
           ))}
@@ -72,12 +72,12 @@ export default function TestimonialList(props: TestimonialListProps) {
 export const query = graphql`
   fragment HomepageTestimonialListContent on HomepageTestimonialList {
     id
-    kicker
     heading
     content {
       id
       quote
       source
+      jobTitle
       avatar {
         id
         gatsbyImageData

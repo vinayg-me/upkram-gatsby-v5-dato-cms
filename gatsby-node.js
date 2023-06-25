@@ -226,12 +226,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       quote: String
       source: String
       avatar: HomepageImage
+      jobTitle: String
     }
 
     interface HomepageTestimonialList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       content: [HomepageTestimonial]
       ## DatoCMS
@@ -592,6 +592,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       quote: String
       source: String
       avatar: HomepageImage
+      jobTitle: String
     }
 
     type DatoCmsHomepageTestimonialList implements Node & HomepageBlock & HomepageTestimonialList
@@ -600,7 +601,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       originalId: String
       entityPayload: JSON
       blocktype: String @blocktype
-      kicker: String
       heading: String
       content: [HomepageTestimonial]
     }
