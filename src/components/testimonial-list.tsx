@@ -14,6 +14,10 @@ import {
   HomepageImage,
 } from "./ui"
 import StyledTitle from "../utils/StyledTitle"
+import { theme } from "../theme.css"
+import * as styles from "./testimonials-list.css"
+import { FabArrow } from "./fab-arrow"
+
 
 interface TestimonialProps {
   id: string
@@ -25,23 +29,23 @@ interface TestimonialProps {
 
 function Testimonial(props: TestimonialProps) {
   return (
-    <Flex variant="start">
+    <Flex variant="start" className={styles.TestimonialCard}>
       {props.avatar && (
         <Avatar alt={props.avatar.alt} image={props.avatar.gatsbyImageData} />
       )}
-      <Blockquote>
-        <Text as="p" variant="lead">
-          {props.quote}
-        </Text>
+      <div className={styles.TestimonialContent}>
         <figcaption>
-          <Text bold variant="caps">
+          <Text bold variant="caps" className={styles.TestimonialContentName}>
             {props.source}
           </Text>
-          <Text bold variant="caps">
+          <Text bold variant="caps" className={styles.TestimonialJobTitle}>
             {props.jobTitle}
           </Text>
+          <Text as="p" variant="lead" className={styles.TestimonialQuote}>
+            {props.quote}
+          </Text>
         </figcaption>
-      </Blockquote>
+      </div>
     </Flex>
   )
 }
@@ -53,17 +57,29 @@ export interface TestimonialListProps {
 }
 
 export default function TestimonialList(props: TestimonialListProps) {
+  const [activeIndex, setActiveIndex] = React.useState(0)
+  const testimonials = props.content
+  console.log('Testimonials list', testimonials.length, activeIndex);
+
+  const curTestimonial = testimonials[activeIndex]
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? prevIndex : prevIndex + 1));
+  };
   return (
     <Section>
       <Container>
-        <StyledTitle text={props.heading} n={1} />
-        <FlexList gutter={3} variant="start" responsive wrap>
-          {props.content.map((testimonial, index) => (
-            <Box as="li" key={testimonial.id + index} width="full" padding={3}>
-              <Testimonial {...testimonial} />
-            </Box>
-          ))}
-        </FlexList>
+        <StyledTitle text={props.heading} n={1} style={{
+          fontSize: theme.customFontSizes[2]
+        }} />
+        <div className={styles.TestimonialRow}>
+          <div onClick={handlePrev} className={styles.CarouselIndicators}><FabArrow variant={activeIndex === 0 ? 'disabled' : 'default'} direction="left" /></div>
+          <Testimonial {...curTestimonial} />
+          <div onClick={handleNext} className={styles.CarouselIndicators}><FabArrow variant={activeIndex === testimonials.length - 1 ? 'disabled' : 'default'} /></div>
+        </div>
       </Container>
     </Section>
   )
