@@ -72,7 +72,7 @@ export default function TestimonialList(props: TestimonialListProps) {
     setActiveIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? prevIndex : prevIndex + 1));
   };
   const testimonialRowRef = useRef(null);
-  useSwipe(testimonialRowRef, handlePrev, handleNext);
+  useSwipe(testimonialRowRef, handleNext, handlePrev);
   return (
     <Section>
       <Container>
