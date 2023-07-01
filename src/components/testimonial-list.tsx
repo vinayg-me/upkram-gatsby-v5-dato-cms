@@ -80,6 +80,15 @@ export default function TestimonialList(props: TestimonialListProps) {
           <Testimonial {...curTestimonial} />
           <div onClick={handleNext} className={styles.CarouselIndicators}><FabArrow variant={activeIndex === testimonials.length - 1 ? 'disabled' : 'default'} /></div>
         </div>
+        <div className={styles.CarouselIndicatorsMobile}>
+          {testimonials.map((_, index) => (
+            <div
+              key={index}
+              className={index === activeIndex ? styles.IndicatorMobileActive : styles.IndicatorMobile}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </div>
       </Container>
     </Section>
   )

@@ -135,3 +135,68 @@ export const TestimonialRow = style({
     justifyContent: "space-between",
     alignItems: "center"
 })
+
+export const CarouselIndicatorsMobile = style({
+    display: "none",
+    "@media": {
+        [media.smallMobile]: {
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "8px"
+
+        },
+        [media.mobile]: {
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "8px"
+        }
+    },
+})
+
+export const IndicatorMobile = style({
+    display: "none",
+    "@media": {
+        [media.smallMobile]: {
+            display: "block",
+            width: "8px",
+            height: "8px",
+            borderRadius: "50%",
+            backgroundColor: theme.colors.black,
+            margin: "0 4px",
+            cursor: "pointer"
+        },
+        [media.mobile]: {
+            display: "block",
+            width: "8px",
+            height: "8px",
+            borderRadius: "50%",
+            backgroundColor: theme.colors.black,
+            margin: "0 4px",
+            cursor: "pointer"
+        }
+    },
+})
+
+export const IndicatorMobileActive = style({
+    display: "none",
+    "@media": {
+        [media.smallMobile]: {
+            display: "block",
+            width: "8px",
+            height: "8px",
+            borderRadius: "50%",
+            backgroundColor: theme.colors.muted,
+            margin: "0 4px",
+            cursor: "pointer"
+        },
+        [media.mobile]: {
+            display: "block",
+            width: "8px",
+            height: "8px",
+            borderRadius: "50%",
+            backgroundColor: theme.colors.muted,
+            margin: "0 4px",
+            cursor: "pointer"
+        }
+    },
+})
