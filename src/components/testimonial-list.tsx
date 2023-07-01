@@ -17,6 +17,8 @@ import StyledTitle from "../utils/StyledTitle"
 import { theme } from "../theme.css"
 import * as styles from "./testimonials-list.css"
 import { FabArrow } from "./fab-arrow"
+import { useRef } from "react"
+import { useSwipe } from '../utils/swipe'
 
 
 interface TestimonialProps {
@@ -69,13 +71,15 @@ export default function TestimonialList(props: TestimonialListProps) {
   const handleNext = () => {
     setActiveIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? prevIndex : prevIndex + 1));
   };
+  const testimonialRowRef = useRef(null);
+  useSwipe(testimonialRowRef, handlePrev, handleNext);
   return (
     <Section>
       <Container>
         <StyledTitle text={props.heading} n={1} style={{
           fontSize: theme.customFontSizes[2]
         }} />
-        <div className={styles.TestimonialRow}>
+        <div className={styles.TestimonialRow} ref={testimonialRowRef}>
           <div onClick={handlePrev} className={styles.CarouselIndicators}><FabArrow variant={activeIndex === 0 ? 'disabled' : 'default'} direction="left" /></div>
           <Testimonial {...curTestimonial} />
           <div onClick={handleNext} className={styles.CarouselIndicators}><FabArrow variant={activeIndex === testimonials.length - 1 ? 'disabled' : 'default'} /></div>
