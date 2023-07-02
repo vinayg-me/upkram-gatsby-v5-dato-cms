@@ -1,53 +1,73 @@
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
 import {
   Box,
-  ButtonList,
   Container,
   Flex,
   Heading,
   HomepageImage,
-  HomepageLink,
-  Kicker,
   Section,
   Subhead,
-  Text,
+  Text
 } from "./ui"
+import { heroHeading, heroSubheading, skewedBackground, textOverlay } from "./hero.css"
 
 export interface HeroProps {
-  image?: HomepageImage
-  kicker?: string
+  image: HomepageImage
   h1: string
   subhead: string
   text: string
-  links: HomepageLink[]
 }
 
 export default function Hero(props: HeroProps) {
+  const {
+    h1,
+    subhead,
+    image: {
+      alt,
+      url
+    }
+  } = props;
   return (
     <Section>
-      <Container>
-        <Flex gap={4} variant="responsive">
-          <Box width="half">
-            {props.image && (
-              <GatsbyImage
-                alt={props.image.alt}
-                image={getImage(props.image.gatsbyImageData)}
-              />
-            )}
-          </Box>
-          <Box width="half">
-            <Heading as="h1">
-              {props.kicker && <Kicker>{props.kicker}</Kicker>}
-              {props.h1}
-            </Heading>
-            <Subhead as="h2">{props.subhead}</Subhead>
-            <Text as="p">{props.text}</Text>
-            <ButtonList links={props.links} />
-          </Box>
-        </Flex>
-      </Container>
+        <div style={{ display: "grid" }}>
+          {/* You can use a GatsbyImage component if the image is dynamic */}
+          <StaticImage
+            style={{
+              gridArea: "1/1",
+              // You can set a maximum height for the image, if you wish.
+              minHeight: 240,
+              maxHeight: 600,
+            }}
+            layout="fullWidth"
+            // You can optionally force an aspect ratio for the generated image
+            aspectRatio={3 / 1}
+            // This is a presentational image, so the alt should be an empty string
+            alt={alt}
+            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
+            src={"https://www.datocms-assets.com/102566/1686398504-homejumbotron.jpg?auto=format"}
+            formats={["auto", "webp", "avif"]}
+          />
+          <div
+            style={{
+              // By using the same grid area for both, they are stacked on top of each other
+              gridArea: "1/1",
+              position: "relative",
+              // This centers the other elements inside the hero component
+              placeItems: "start",
+              display: "grid",
+            }}
+          >
+            {/* Any content here will be centered in the component */}
+            <div className={skewedBackground}>
+              <div className={textOverlay}>
+                <h1 className={heroHeading}>{h1}</h1>
+                <p className={heroSubheading}>{subhead}</p>
+              </div>
+            </div>
+          </div>
+        </div>
     </Section>
   )
 }
@@ -66,8 +86,8 @@ export const query = graphql`
     }
     image {
       id
-      gatsbyImageData
       alt
+      url
     }
   }
 `

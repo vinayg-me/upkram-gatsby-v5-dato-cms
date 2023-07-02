@@ -9,6 +9,9 @@ import {
   Logo,
   HomepageImage,
 } from "./ui"
+import StyledTitle from "../utils/StyledTitle"
+import { theme } from "../theme.css"
+import * as styles from "./logo-list.css"
 
 export interface LogoItemProps {
   id: string
@@ -32,24 +35,29 @@ export interface LogoListProps {
 export default function LogoList(props: LogoListProps) {
   return (
     <Section paddingY={4}>
-      <Container width="narrow">
+      <Container>
         {props.text && (
-          <Text center variant="lead">
-            {props.text}
-          </Text>
+          <StyledTitle text={props.text} n={1} style={{
+            fontSize: theme.customFontSizes[2]
+          }} />
         )}
         <Space size={4} />
-        <FlexList gap={4} variant="center">
-          {props.logos.map(
-            (logo) =>
-              logo && (
-                <li key={logo.id}>
-                  <LogoItem {...logo} />
-                </li>
-              )
-          )}
-        </FlexList>
       </Container>
+      <Section background="primary">
+        <Container>
+          <FlexList gap={4} variant="center">
+            {props.logos.map(
+              (logo) =>
+                logo && (
+                  <li key={logo.id} className={styles.LogoContainer}>
+                    <LogoItem {...logo} />
+                  </li>
+                )
+            )}
+          </FlexList>
+        </Container>
+
+      </Section>
     </Section>
   )
 }

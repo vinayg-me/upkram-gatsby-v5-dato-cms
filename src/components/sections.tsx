@@ -11,6 +11,10 @@ import { AboutHeroProps } from "./about-hero"
 import { AboutStatListProps } from "./about-stat-list"
 import { AboutLeadershipProps } from "./about-leadership"
 import { AboutLogoListProps } from "./about-logo-list"
+import { HomepageIntroProps } from "./homepage-intro"
+import { HomepageFocusAreaProps } from "./focus-area"
+import { HomepageOurWorkProps } from "./our-work"
+import { HomepageOurProgramProps } from "./our-program-home"
 
 export { default as HomepageHero } from "./hero"
 export { default as HomepageFeatureList } from "./feature-list"
@@ -20,10 +24,14 @@ export { default as HomepageTestimonialList } from "./testimonial-list"
 export { default as HomepageStatList } from "./stat-list"
 export { default as HomepageCta } from "./cta"
 export { default as HomepageProductList } from "./product-list"
+export { default as HomepageIntro } from "./homepage-intro"
+export { default as HomepageOurFocusArea } from "./focus-area"
+export { default as HomepageOurWork } from "./our-work"
 export { default as AboutHero } from "./about-hero"
 export { default as AboutStatList } from "./about-stat-list"
 export { default as AboutLeadership } from "./about-leadership"
 export { default as AboutLogoList } from "./about-logo-list"
+export { default as HomepageOurProgram } from "./our-program-home"
 
 export type SectionProps =
   | HeroProps
@@ -38,6 +46,10 @@ export type SectionProps =
   | AboutStatListProps
   | AboutLeadershipProps
   | AboutLogoListProps
+  | HomepageIntroProps
+  | HomepageFocusAreaProps
+  | HomepageOurWorkProps
+  | HomepageOurProgramProps
 
 type Blocktypes =
   | "HomepageHero"
@@ -48,6 +60,10 @@ type Blocktypes =
   | "HomepageStatList"
   | "HomepageCta"
   | "HomepageProductList"
+  | "HomepageIntro"
+  | "HomepageOurFocusArea"
+  | "HomepageOurProgram"
+  | "HomepageOurWork"
   | "AboutHero"
   | "AboutStatList"
   | "AboutLeadership"
@@ -67,6 +83,10 @@ export type HomepageBlock =
   | WithBlocktype<"HomepageStatList", StatListProps>
   | WithBlocktype<"HomepageCta", CtaProps>
   | WithBlocktype<"HomepageProductList", ProductListProps>
+  | WithBlocktype<"HomepageIntro", HomepageIntroProps>
+  | WithBlocktype<"HomepageOurFocusArea", HomepageFocusAreaProps>
+  | WithBlocktype<"HomepageOurWork", HomepageOurWorkProps>
+  | WithBlocktype<"HomepageOurProgram", HomepageOurProgramProps>
   | WithBlocktype<"AboutHero", AboutHeroProps>
   | WithBlocktype<"AboutStatList", AboutStatListProps>
   | WithBlocktype<"AboutLeadership", AboutLeadershipProps>

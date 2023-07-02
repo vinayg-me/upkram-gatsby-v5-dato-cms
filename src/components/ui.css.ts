@@ -3,11 +3,17 @@ import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
 
 const breakpoints = ["40em", "52em", "64em"]
+const responsiveBreakpoints = [320, 480, 768, 1024, 1200]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
   medium: `screen and (min-width: ${breakpoints[1]})`,
   large: `screen and (min-width: ${breakpoints[2]})`,
+  smallMobile: `screen and (max-width: ${responsiveBreakpoints[1]}px)`,
+  mobile: `screen and (min-width: ${responsiveBreakpoints[1]+1}px) and (max-width: ${responsiveBreakpoints[2]}px)`,
+  tablet: `screen and (min-width: ${responsiveBreakpoints[2]+1}px) and (max-width: ${responsiveBreakpoints[3]}px)`,
+  desktop: `screen and (min-width: ${responsiveBreakpoints[3]+1}px) and (max-width: ${responsiveBreakpoints[4]}px)`,
+  desktopUp: `screen and (min-width: ${responsiveBreakpoints[4]+1}px)`,
 }
 
 export const container = style({
@@ -156,6 +162,7 @@ export const list = style({
   listStyle: "none",
   padding: 0,
   margin: 0,
+  textAlign: 'center'
 })
 
 export const padding = styleVariants(theme.space, (padding) => ({ padding }))
@@ -474,7 +481,7 @@ const button = style({
   borderRadius: theme.radii.button,
 })
 
-export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed"
+export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "red"
 
 export const buttons: Record<ButtonVariants, string> = styleVariants({
   primary: [
@@ -482,6 +489,19 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
     {
       color: theme.colors.background,
       backgroundColor: theme.colors.primary,
+      ":hover": {
+        backgroundColor: theme.colors.active,
+      },
+      ":focus": {
+        backgroundColor: theme.colors.active,
+      },
+    },
+  ],
+  red: [
+    button,
+    {
+      color: theme.colors.white,
+      backgroundColor: theme.colors.muted,
       ":hover": {
         backgroundColor: theme.colors.active,
       },
@@ -535,7 +555,7 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
   ],
 })
 
-export type Backgrounds = "primary" | "muted"
+export type Backgrounds = "primary" | "muted" | "dark"
 
 export const backgrounds: Record<Backgrounds, string> = styleVariants({
   primary: {
@@ -546,6 +566,10 @@ export const backgrounds: Record<Backgrounds, string> = styleVariants({
     color: theme.colors.primary,
     backgroundColor: theme.colors.muted,
   },
+  dark: {
+    color: theme.colors.white,
+    backgroundColor: theme.colors.dark,
+  }
 })
 
 export const blockquote = style({
@@ -576,13 +600,14 @@ export const logos: Record<LogoSizes, string> = styleVariants({
   },
 })
 
-export type IconSizes = "small" | "medium" | "large"
+export type IconSizes = "small" | "medium" | "large" | "xlarge"
 
 export const icons: Record<IconSizes, string> = styleVariants(
   {
     small: "24px",
     medium: "32px",
     large: "64px",
+    xlarge: "128px",
   },
   (size) => ({
     width: size,
@@ -610,7 +635,7 @@ export const interactiveIcon = style({
   border: "none",
   cursor: "pointer",
   width: 48,
-  height: 48,
+  height: 48
 })
 
 export const visuallyHidden = style({

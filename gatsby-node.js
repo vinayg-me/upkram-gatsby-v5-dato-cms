@@ -226,12 +226,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       quote: String
       source: String
       avatar: HomepageImage
+      jobTitle: String
     }
 
     interface HomepageTestimonialList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       content: [HomepageTestimonial]
       ## DatoCMS
@@ -299,6 +299,69 @@ exports.createSchemaCustomization = async ({ actions }) => {
       entityPayload: JSON
     }
 
+    interface LearningCrisisBlock implements Node {
+      id: ID!
+      description: String
+      title: String
+    }
+
+    interface HomepageIntro implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      description: String
+      content: [LearningCrisisBlock]
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
+    interface FocusAreaBlock implements Node {
+      id: ID!
+      focusText: String
+      focusImage: HomepageImage
+    }
+
+    interface HomepageOurFocusArea implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      sectionTitle: String
+      sectionDescription: String
+      focusAreaItems: [FocusAreaBlock]
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
+    interface Program implements Node {
+      id: ID!
+      programContent: String
+      programShortDescription: String
+      programTitle: String
+      programImage: HomepageImage
+    }
+
+    interface HomepageOurProgram implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      sectionTitle: String
+      sectionDescription: String
+      listOfPrograms: [Program]
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
+    interface HomepageOurWork implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      sectionTitle: String
+      sectionDescription: String
+      sectionImage: HomepageImage
+      ## DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
     interface Homepage implements Node {
       id: ID!
       title: String
@@ -337,6 +400,10 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink]
       meta: [HomepageLink]
       socialLinks: [SocialLink]
+      footerCtaText: String
+      footerCtaButton: [HomepageLink]
+      emailAddress: String
+      address: String
       copyright: String
       entityPayload: JSON
     }
@@ -529,6 +596,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       quote: String
       source: String
       avatar: HomepageImage
+      jobTitle: String
     }
 
     type DatoCmsHomepageTestimonialList implements Node & HomepageBlock & HomepageTestimonialList
@@ -537,7 +605,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       originalId: String
       entityPayload: JSON
       blocktype: String @blocktype
-      kicker: String
       heading: String
       content: [HomepageTestimonial]
     }
@@ -591,7 +658,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       links: [HomepageLink]
     }
-
+    
     type DatoCmsHomepageProductList implements Node & HomepageBlock & HomepageProductList
       @dontInfer {
       id: ID!
@@ -602,6 +669,72 @@ exports.createSchemaCustomization = async ({ actions }) => {
       kicker: String
       text: String
       content: [HomepageProduct]
+    }
+
+    type DatoCmsLearningCrisisBlock implements Node & LearningCrisisBlock @dontInfer {
+      id: ID!
+      title: String
+      description: String
+    }
+
+
+    type DatoCmsHomepageIntro implements Node & HomepageBlock & HomepageIntro
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      description: String
+      content: [LearningCrisisBlock]
+    }
+
+    type DatoCmsFocusAreaBlock implements Node & FocusAreaBlock @dontInfer {
+      id: ID!
+      focusText: String
+      focusImage: HomepageImage
+    }
+
+
+    type DatoCmsHomepageOurFocusArea implements Node & HomepageBlock & HomepageOurFocusArea
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      sectionTitle: String
+      sectionDescription: String
+      focusAreaItems: [FocusAreaBlock]
+    }
+
+    type DatoCmsProgram implements Node & Program @dontInfer {
+      id: ID!
+      programContent: String
+      programShortDescription: String
+      programTitle: String
+      programImage: HomepageImage
+    }
+
+
+    type DatoCmsHomepageOurProgram implements Node & HomepageBlock & HomepageOurProgram
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      sectionTitle: String
+      sectionDescription: String
+      listOfPrograms: [Program]
+    }
+    
+    type DatoCmsHomepageOurWork implements Node & HomepageBlock & HomepageOurWork
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      sectionTitle: String
+      sectionDescription: String
+      sectionImage: HomepageImage
     }
 
     type DatoCmsHomepage implements Node & Homepage @dontInfer {
@@ -709,8 +842,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       links: [HomepageLink]
       metalinks: [HomepageLink]
+      footerCtaText: String
+      footerCtaButton: [HomepageLink]
       meta: [HomepageLink] @metalinks
       socialLinks: [SocialLink]
+      emailAddress: String
+      address: String
       copyright: String
       originalId: String
       entityPayload: JSON
@@ -750,4 +887,3 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.tsx"),
   })
 }
-      

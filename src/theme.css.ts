@@ -35,6 +35,13 @@ const fontSizes = {
   5: "32px",
   6: "48px",
   7: "64px",
+  8: "72px"
+}
+
+const customFontSizes = {
+  0: '36px',
+  1: '20px',
+  2: '40px' 
 }
 
 const fontWeights = {
@@ -46,8 +53,8 @@ const fontWeights = {
 }
 
 const fonts = {
-  text: '"DM Sans", sans-serif',
-  heading: '"DM Sans", sans-serif',
+  text: '"Poppins", sans-serif',
+  heading: '"Poppins", sans-serif',
   mono: "DM Mono, Menlo, monospace",
 }
 
@@ -69,19 +76,20 @@ const sizes = {
   narrow: "1024px",
   wide: "1440px",
   tight: "848px",
-  avatar: "48px",
+  avatar: "128px",
   navGroupBoxMin: "300px",
   navGroupBoxMax: "400px",
   navIcon: "32px",
   navIconSmall: "30px",
 }
 
-export type Radii = "button" | "large" | "circle"
+export type Radii = "button" | "large" | "circle" | "card"
 
 const radii: Record<Radii, string> = {
   button: "10px",
   large: "24px",
   circle: "99999px",
+  card: "16px",
 }
 
 const shadows = {
@@ -93,6 +101,7 @@ export const theme = createGlobalTheme(":root", {
   colors,
   space,
   fontSizes,
+  customFontSizes,
   fontWeights,
   fonts,
   lineHeights,
