@@ -152,6 +152,23 @@ export default function Footer() {
                 })}
             </FlexList>
           </Flex>
+          <Flex variant="column" className={styles.ThirdCol}>
+            <Flex variant="start" responsive style={{
+              flexDirection: "column"
+            }}>
+              <Text variant="body" className={styles.FooterTitle} as="p">Quick Links</Text>
+              <FlexList variant="start" responsive style={{
+                flexDirection: "column"
+              }}>
+                {links &&
+                  links.map((link) => (
+                    <li key={link.id}>
+                      <NavLink to={link.href}>{link.text}</NavLink>
+                    </li>
+                  ))}
+              </FlexList>
+            </Flex>
+          </Flex>
 
         </Flex>
         <Space size={5} />
