@@ -400,6 +400,10 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink]
       meta: [HomepageLink]
       socialLinks: [SocialLink]
+      footerCtaText: String
+      footerCtaButton: [HomepageLink]
+      emailAddress: String
+      address: String
       copyright: String
       entityPayload: JSON
     }
@@ -838,8 +842,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       links: [HomepageLink]
       metalinks: [HomepageLink]
+      footerCtaText: String
+      footerCtaButton: [HomepageLink]
       meta: [HomepageLink] @metalinks
       socialLinks: [SocialLink]
+      emailAddress: String
+      address: String
       copyright: String
       originalId: String
       entityPayload: JSON

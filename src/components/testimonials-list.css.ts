@@ -133,7 +133,8 @@ export const TestimonialRow = style({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: "8px",
 })
 
 export const CarouselIndicatorsMobile = style({

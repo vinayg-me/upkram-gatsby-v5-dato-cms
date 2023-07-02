@@ -61,7 +61,6 @@ export interface TestimonialListProps {
 export default function TestimonialList(props: TestimonialListProps) {
   const [activeIndex, setActiveIndex] = React.useState(0)
   const testimonials = props.content
-  console.log('Testimonials list', testimonials.length, activeIndex);
 
   const curTestimonial = testimonials[activeIndex]
   const handlePrev = () => {

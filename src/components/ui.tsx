@@ -77,7 +77,6 @@ export function Flex({
   cx: _cx = [],
   ...props
 }: WithChildren<FlexProps>) {
-  console.debug('Wrap ->', wrap)
   return (
     <Base
       cx={[
