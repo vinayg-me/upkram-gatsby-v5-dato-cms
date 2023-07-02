@@ -7,6 +7,7 @@ import {
   Youtube,
   MapPin,
   Mail,
+  Linkedin,
 } from "react-feather"
 import {
   Container,
@@ -46,6 +47,11 @@ const socialMedia = {
     url: "https://youtube.com",
     name: "YouTube",
     icon: <Youtube color={theme.colors.white} />,
+  },
+  LINKEDIN: {
+    url: "https://www.linkedin.com/",
+    name: "LinkedIn",
+    icon: <Linkedin color={theme.colors.white} />
   }
 }
 
