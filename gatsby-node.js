@@ -445,6 +445,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface MotoBlock implements Node {
       id: ID!
       motoBlockText: String
+      mototitle: String
       motoBlockImage: HomepageImage
     }
 
@@ -812,9 +813,10 @@ exports.createSchemaCustomization = async ({ actions }) => {
       aboutUsDescription: String
     }
 
-    type DatoCmsMotoBlock implements Node & MotoBlock @dontInfer {
+    type DatoCmsAboutMotoBlock implements Node & MotoBlock @dontInfer {
       id: ID!
       motoBlockText: String
+      mototitle: String
       motoBlockImage: HomepageImage
     }
 
