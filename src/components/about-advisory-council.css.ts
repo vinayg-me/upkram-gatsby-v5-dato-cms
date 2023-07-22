@@ -32,11 +32,29 @@ export const AdvisorName = style({
     textAlign: "center",
     lineHeight: theme.lineHeights.heading,
     color: theme.colors.black,
+    "@media": {
+        [media.smallMobile]: {
+            fontSize: theme.fontSizes[2],
+        },
+        [media.mobile]: {
+            fontSize: theme.fontSizes[3],
+        }
+    },
 })
 
 export const AdvisorPhoto = style({
     width: '360px', // Set the width to 360px
     height: '320px', // Set the height to 360px, making it a square aspect ratio
     objectFit: 'cover', // Ensure the image covers the square container
-    borderRadius: '8px'
+    borderRadius: '8px',
+    "@media": {
+        [media.smallMobile]: {
+            width: '280px', // Set the width to 360px
+            height: '240px',
+        },
+        [media.mobile]: {
+            width: '320px', // Set the width to 360px
+            height: '280px',
+        }
+    },
 })

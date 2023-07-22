@@ -20,8 +20,6 @@ export interface AboutMotoBlockProps {
 }
 
 export default function AboutTheMoto(props: AboutMotoBlockProps) {
-    console.log("🚀 ~ file: about-moto-block.tsx:22 ~ AboutTheMoto ~ props:", props)
-
     const MotoBlock = ({ id, motoBlockText, motoBlockImage, mototitle }: AboutMotoBlock) => (
         <div key={id} className={styles.MotoBlock}>
             <div className={styles.MotoBlockImageContainer}>

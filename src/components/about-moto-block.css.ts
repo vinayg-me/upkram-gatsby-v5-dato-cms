@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { theme } from "../theme.css";
+import { media } from "./ui.css";
 
 export const RowContainer = style({
     display: "flex",
@@ -7,6 +8,14 @@ export const RowContainer = style({
     flexWrap: "wrap",
     gap: theme.space[4],
     marginTop: theme.space[2],
+    "@media": {
+        [media.smallMobile]: {
+            flexDirection: "column",
+        },
+        [media.mobile]: {
+            flexDirection: "column",
+        }
+    }
 })
 
 export const MotoBlock = style({
