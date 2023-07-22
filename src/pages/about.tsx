@@ -50,6 +50,7 @@ export const query = graphql`
         ...AboutHeroContent
         ...AboutUsIntroContent
         ...AboutMotoBlockContent
+        ...AboutUsObjectiveContent
       }
     }
   }

@@ -14,6 +14,7 @@ import { HomepageOurWorkProps } from "./our-work"
 import { HomepageOurProgramProps } from "./our-program-home"
 import { AboutIntroProps } from "./about-intro"
 import { AboutMotoBlockProps } from "./about-moto-block"
+import { AboutUsObjectiveProps } from "./about-our-objectives"
 
 export { default as HomepageHero } from "./hero"
 export { default as HomepageFeatureList } from "./feature-list"
@@ -29,6 +30,7 @@ export { default as HomepageOurWork } from "./our-work"
 export { default as AboutHero } from "./about-hero"
 export { default as AboutUsIntro } from "./about-intro"
 export { default as AboutTheMoto } from "./about-moto-block"
+export { default as AboutUsObjective } from "./about-our-objectives"
 export { default as HomepageOurProgram } from "./our-program-home"
 
 export type SectionProps =
@@ -43,6 +45,7 @@ export type SectionProps =
   | AboutHeroProps
   | AboutIntroProps
   | AboutMotoBlockProps
+  | AboutUsObjectiveProps
   | HomepageIntroProps
   | HomepageFocusAreaProps
   | HomepageOurWorkProps
@@ -64,6 +67,7 @@ type Blocktypes =
   | "AboutHero"
   | "AboutUsIntro"
   | "AboutTheMoto"
+  | "AboutUsObjective"
 
 type WithBlocktype<B = Blocktypes, P = SectionProps> = {
   id: string
@@ -86,3 +90,4 @@ export type HomepageBlock =
   | WithBlocktype<"AboutHero", AboutHeroProps>
   | WithBlocktype<"AboutUsIntro", AboutIntroProps>
   | WithBlocktype<"AboutTheMoto", AboutMotoBlockProps>
+  | WithBlocktype<"AboutUsObjective", AboutUsObjectiveProps>
