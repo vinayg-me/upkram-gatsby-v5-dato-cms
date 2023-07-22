@@ -867,7 +867,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       listOfVolunteer: [TeamMember]
     }
     
-    type DatoCmsCounsellorBlock implements Node & CounsellorBlock @dontInfer {
+    type DatoCmsCouncilBlock implements Node & CounsellorBlock @dontInfer {
       id: ID!
       advisorName: String
       advisorTitle: String
