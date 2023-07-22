@@ -48,12 +48,7 @@ export const query = graphql`
         id
         blocktype
         ...AboutHeroContent
-        ...AboutStatListContent
-        ...HomepageProductListContent
-        ...AboutLeadershipContent
-        ...HomepageBenefitListContent
-        ...AboutLogoListContent
-        ...HomepageCtaContent
+        ...AboutUsIntroContent
       }
     }
   }

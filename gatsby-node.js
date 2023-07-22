@@ -427,59 +427,101 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface AboutHero implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      heading: String
-      text: String
       image: HomepageImage
+      subheadingtext: String
       # DatoCMS
       originalId: String
       entityPayload: JSON
     }
-
-    interface AboutStat implements Node {
-      id: ID!
-      value: String
-      label: String
-    }
-
-    interface AboutStatList implements Node & HomepageBlock {
+    interface AboutUsIntro implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      content: [AboutStat]
+      aboutUsDescription: String
       # DatoCMS
       originalId: String
       entityPayload: JSON
     }
 
-    interface AboutProfile implements Node {
+    interface MotoBlock implements Node {
       id: ID!
-      image: HomepageImage
+      motoBlockText: String
+      motoBlockImage: HomepageImage
+    }
+
+    interface AboutTheMoto implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      title: String
+      listOfMotoBlocks: [MotoBlock]
+      # DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
+    interface AboutUsObjective implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      content: String
+      title: String
+      # DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+
+    interface TeamMember implements Node {
+      id: ID!
       name: String
-      jobTitle: String
+      title: String
+      photo: HomepageImage
     }
 
-    interface AboutLeadership implements Node & HomepageBlock {
+    interface AboutUsOurTeam implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
-      heading: String
-      subhead: String
-      content: [AboutProfile]
+      title: String
+      listOfTeamMembers: [TeamMember]
       # DatoCMS
       originalId: String
       entityPayload: JSON
     }
 
-    interface AboutLogoList implements Node & HomepageBlock {
+    interface AboutUsOurVolunteer implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      heading: String
-      links: [HomepageLink]
-      logos: [HomepageImage]
+      title: String
+      listOfVolunteer: [TeamMember]
       # DatoCMS
       originalId: String
       entityPayload: JSON
     }
 
+    interface CounsellorBlock implements Node {
+      id: ID!
+      advisorName: String
+      advisorTitle: String
+      advisorPhoto: HomepageImage
+    }
+
+    interface AboutUsAdvisoryCouncil implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      title: String
+      listOfCounsellorsBlock: [CounsellorBlock]
+      # DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+    
+    interface AboutUsOurVolunteer implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      title: String
+      listOfVolunteer: [TeamMember]
+      # DatoCMS
+      originalId: String
+      entityPayload: JSON
+    }
+    
     interface Page implements Node {
       id: ID!
       slug: String!
@@ -757,54 +799,87 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String @blocktype
       originalId: String
       entityPayload: JSON
-      heading: String
-      text: String
       image: HomepageImage
+      subheadingtext: String
     }
 
-    type DatoCmsAboutStat implements Node & AboutStat @dontInfer {
-      id: ID!
-      value: String
-      label: String
-    }
-
-    type DatoCmsAboutStatList implements Node & AboutStatList & HomepageBlock
+    type DatoCmsAboutUsIntro implements Node & AboutUsIntro & HomepageBlock
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
       originalId: String
       entityPayload: JSON
-      content: [AboutStat]
+      aboutUsDescription: String
     }
 
-    type DatoCmsAboutProfile implements Node & AboutProfile @dontInfer {
+    type DatoCmsMotoBlock implements Node & MotoBlock @dontInfer {
       id: ID!
-      image: HomepageImage
+      motoBlockText: String
+      motoBlockImage: HomepageImage
+    }
+
+    type DatoCmsAboutTheMoto implements Node & AboutTheMoto & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      title: String
+      listOfMotoBlocks: [MotoBlock]
+    }
+
+    type DatoCmsAboutUsObjective implements Node & AboutUsObjective & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      content: String
+      title: String
+    }
+
+    type DatoCmsTeamMember implements Node & TeamMember @dontInfer {
+      id: ID!
       name: String
-      jobTitle: String
+      title: String
+      photo: HomepageImage
     }
 
-    type DatoCmsAboutLeadership implements Node & AboutLeadership & HomepageBlock
+    type DatoCmsAboutUsOurTeam implements Node & AboutUsOurTeam & HomepageBlock
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
       originalId: String
       entityPayload: JSON
-      kicker: String
-      heading: String
-      subhead: String
-      content: [AboutProfile]
+      title: String
+      listOfTeamMembers: [TeamMember]
     }
 
-    type DatoCmsAboutLogoList implements Node & AboutLogoList & HomepageBlock
+    type DatoCmsAboutUsOurVolunteer implements Node & AboutUsOurVolunteer & HomepageBlock
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
       originalId: String
       entityPayload: JSON
-      heading: String
-      links: [HomepageLink]
-      logos: [HomepageImage]
+      title: String
+      listOfVolunteer: [TeamMember]
+    }
+    
+    type DatoCmsCounsellorBlock implements Node & CounsellorBlock @dontInfer {
+      id: ID!
+      advisorName: String
+      advisorTitle: String
+      advisorPhoto: HomepageImage
+    }
+
+    type DatoCmsAboutUsAdvisoryCouncil implements Node & AboutUsAdvisoryCouncil & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      originalId: String
+      entityPayload: JSON
+      title: String
+      listOfCounsellorsBlock: [CounsellorBlock]
     }
 
     type DatoCmsAboutpage implements Node & AboutPage @dontInfer {

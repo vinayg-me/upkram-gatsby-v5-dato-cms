@@ -8,13 +8,11 @@ import { CtaProps } from "./cta"
 import { ProductListProps } from "./product-list"
 
 import { AboutHeroProps } from "./about-hero"
-import { AboutStatListProps } from "./about-stat-list"
-import { AboutLeadershipProps } from "./about-leadership"
-import { AboutLogoListProps } from "./about-logo-list"
 import { HomepageIntroProps } from "./homepage-intro"
 import { HomepageFocusAreaProps } from "./focus-area"
 import { HomepageOurWorkProps } from "./our-work"
 import { HomepageOurProgramProps } from "./our-program-home"
+import { AboutIntroProps } from "./about-intro"
 
 export { default as HomepageHero } from "./hero"
 export { default as HomepageFeatureList } from "./feature-list"
@@ -28,9 +26,7 @@ export { default as HomepageIntro } from "./homepage-intro"
 export { default as HomepageOurFocusArea } from "./focus-area"
 export { default as HomepageOurWork } from "./our-work"
 export { default as AboutHero } from "./about-hero"
-export { default as AboutStatList } from "./about-stat-list"
-export { default as AboutLeadership } from "./about-leadership"
-export { default as AboutLogoList } from "./about-logo-list"
+export { default as AboutUsIntro } from "./about-intro"
 export { default as HomepageOurProgram } from "./our-program-home"
 
 export type SectionProps =
@@ -43,9 +39,7 @@ export type SectionProps =
   | CtaProps
   | ProductListProps
   | AboutHeroProps
-  | AboutStatListProps
-  | AboutLeadershipProps
-  | AboutLogoListProps
+  | AboutIntroProps
   | HomepageIntroProps
   | HomepageFocusAreaProps
   | HomepageOurWorkProps
@@ -65,9 +59,7 @@ type Blocktypes =
   | "HomepageOurProgram"
   | "HomepageOurWork"
   | "AboutHero"
-  | "AboutStatList"
-  | "AboutLeadership"
-  | "AboutLogoList"
+  | "AboutUsIntro"
 
 type WithBlocktype<B = Blocktypes, P = SectionProps> = {
   id: string
@@ -88,6 +80,4 @@ export type HomepageBlock =
   | WithBlocktype<"HomepageOurWork", HomepageOurWorkProps>
   | WithBlocktype<"HomepageOurProgram", HomepageOurProgramProps>
   | WithBlocktype<"AboutHero", AboutHeroProps>
-  | WithBlocktype<"AboutStatList", AboutStatListProps>
-  | WithBlocktype<"AboutLeadership", AboutLeadershipProps>
-  | WithBlocktype<"AboutLogoList", AboutLogoListProps>
+  | WithBlocktype<"AboutUsIntro", AboutIntroProps>
