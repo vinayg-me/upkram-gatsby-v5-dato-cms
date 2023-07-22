@@ -28,12 +28,7 @@ export default function AboutUsAdvisoryCouncil({ id, title, listOfCounsellorsBlo
             padding: 0
         }}>
             {advisorPhoto && (
-                <GatsbyImage alt={advisorPhoto.alt} image={advisorPhoto.gatsbyImageData} style={{
-                    width: '360px', // Set the width to 360px
-                    height: '320px', // Set the height to 360px, making it a square aspect ratio
-                    objectFit: 'cover', // Ensure the image covers the square container
-                    borderRadius: '8px'
-                }} />
+                <GatsbyImage alt={advisorPhoto.alt} image={advisorPhoto.gatsbyImageData} className={styles.AdvisorPhoto} />
             )}
             <div style={{
                 padding: 8
