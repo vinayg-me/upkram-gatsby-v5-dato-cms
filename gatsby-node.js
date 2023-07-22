@@ -840,7 +840,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
     }
 
-    type DatoCmsTeamMember implements Node & TeamMember @dontInfer {
+    type DatoCmsTeamMemberBlock implements Node & TeamMember @dontInfer {
       id: ID!
       name: String
       title: String

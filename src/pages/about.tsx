@@ -52,6 +52,7 @@ export const query = graphql`
         ...AboutMotoBlockContent
         ...AboutUsObjectiveContent
         ...AboutUsAdvisoryCouncilContent
+        ...AboutUsOurTeamContent
       }
     }
   }
