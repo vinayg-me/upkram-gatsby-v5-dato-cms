@@ -8,13 +8,16 @@ import { CtaProps } from "./cta"
 import { ProductListProps } from "./product-list"
 
 import { AboutHeroProps } from "./about-hero"
-import { AboutStatListProps } from "./about-stat-list"
-import { AboutLeadershipProps } from "./about-leadership"
-import { AboutLogoListProps } from "./about-logo-list"
 import { HomepageIntroProps } from "./homepage-intro"
 import { HomepageFocusAreaProps } from "./focus-area"
 import { HomepageOurWorkProps } from "./our-work"
 import { HomepageOurProgramProps } from "./our-program-home"
+import { AboutIntroProps } from "./about-intro"
+import { AboutMotoBlockProps } from "./about-moto-block"
+import { AboutUsObjectiveProps } from "./about-our-objectives"
+import { AboutUsAdvisoryCouncilProps } from "./about-advisory-council"
+import { AboutUsOurTeamProps } from "./about-our-team"
+import { AboutUsOurVolunteerProps } from "./about-our-volunteers"
 
 export { default as HomepageHero } from "./hero"
 export { default as HomepageFeatureList } from "./feature-list"
@@ -28,9 +31,12 @@ export { default as HomepageIntro } from "./homepage-intro"
 export { default as HomepageOurFocusArea } from "./focus-area"
 export { default as HomepageOurWork } from "./our-work"
 export { default as AboutHero } from "./about-hero"
-export { default as AboutStatList } from "./about-stat-list"
-export { default as AboutLeadership } from "./about-leadership"
-export { default as AboutLogoList } from "./about-logo-list"
+export { default as AboutUsIntro } from "./about-intro"
+export { default as AboutTheMoto } from "./about-moto-block"
+export { default as AboutUsObjective } from "./about-our-objectives"
+export { default as AboutUsAdvisoryCouncil } from "./about-advisory-council"
+export { default as AboutUsOurTeam } from "./about-our-team"
+export { default as AboutUsOurVolunteer } from "./about-our-volunteers"
 export { default as HomepageOurProgram } from "./our-program-home"
 
 export type SectionProps =
@@ -43,9 +49,12 @@ export type SectionProps =
   | CtaProps
   | ProductListProps
   | AboutHeroProps
-  | AboutStatListProps
-  | AboutLeadershipProps
-  | AboutLogoListProps
+  | AboutIntroProps
+  | AboutMotoBlockProps
+  | AboutUsObjectiveProps
+  | AboutUsAdvisoryCouncilProps
+  | AboutUsOurTeamProps
+  | AboutUsOurVolunteerProps
   | HomepageIntroProps
   | HomepageFocusAreaProps
   | HomepageOurWorkProps
@@ -65,9 +74,12 @@ type Blocktypes =
   | "HomepageOurProgram"
   | "HomepageOurWork"
   | "AboutHero"
-  | "AboutStatList"
-  | "AboutLeadership"
-  | "AboutLogoList"
+  | "AboutUsIntro"
+  | "AboutTheMoto"
+  | "AboutUsObjective"
+  | "AboutUsAdvisoryCouncil"
+  | "AboutUsOurTeam"
+  | "AboutUsOurVolunteer"
 
 type WithBlocktype<B = Blocktypes, P = SectionProps> = {
   id: string
@@ -88,6 +100,9 @@ export type HomepageBlock =
   | WithBlocktype<"HomepageOurWork", HomepageOurWorkProps>
   | WithBlocktype<"HomepageOurProgram", HomepageOurProgramProps>
   | WithBlocktype<"AboutHero", AboutHeroProps>
-  | WithBlocktype<"AboutStatList", AboutStatListProps>
-  | WithBlocktype<"AboutLeadership", AboutLeadershipProps>
-  | WithBlocktype<"AboutLogoList", AboutLogoListProps>
+  | WithBlocktype<"AboutUsIntro", AboutIntroProps>
+  | WithBlocktype<"AboutTheMoto", AboutMotoBlockProps>
+  | WithBlocktype<"AboutUsObjective", AboutUsObjectiveProps>
+  | WithBlocktype<"AboutUsAdvisoryCouncil", AboutUsAdvisoryCouncilProps>
+  | WithBlocktype<"AboutUsOurTeam", AboutUsOurTeamProps>
+  | WithBlocktype<"AboutUsOurVolunteer", AboutUsOurVolunteerProps>

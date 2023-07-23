@@ -13,14 +13,6 @@ export interface AboutHeroProps {
 export default function AboutHero(props: AboutHeroProps) {
   return (
     <Section>
-      <Container>
-        <SuperHeading className={styles.aboutHeroHeader}>
-          {props.heading}
-        </SuperHeading>
-        {props.text && (
-          <Text className={styles.aboutHeroText}>{props.text}</Text>
-        )}
-      </Container>
       <Container width="wide">
         {props.image && (
           <GatsbyImage
@@ -37,8 +29,6 @@ export default function AboutHero(props: AboutHeroProps) {
 export const query = graphql`
   fragment AboutHeroContent on AboutHero {
     id
-    heading
-    text
     image {
       id
       gatsbyImageData
