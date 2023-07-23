@@ -28,7 +28,7 @@ export default function AboutUsAdvisoryCouncil({ id, title, listOfCounsellorsBlo
             padding: 0
         }}>
             {advisorPhoto && (
-                <GatsbyImage alt={advisorPhoto.alt} image={advisorPhoto.gatsbyImageData} className={styles.AdvisorPhoto} />
+                <GatsbyImage alt={advisorPhoto.alt} image={advisorPhoto.gatsbyImageData} className={styles.AdvisorPhoto} imgStyle={{ objectFit: 'contain' }} />
             )}
             <div style={{
                 padding: 8

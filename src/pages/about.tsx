@@ -19,7 +19,6 @@ interface AboutProps {
 
 export default function About(props: AboutProps) {
   const { aboutPage } = props.data
-
   return (
     <Layout>
       {aboutPage.blocks.map((block) => {
@@ -53,6 +52,7 @@ export const query = graphql`
         ...AboutUsObjectiveContent
         ...AboutUsAdvisoryCouncilContent
         ...AboutUsOurTeamContent
+        ...AboutUsOurVolunteerContent
       }
     }
   }

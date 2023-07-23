@@ -17,6 +17,7 @@ import { AboutMotoBlockProps } from "./about-moto-block"
 import { AboutUsObjectiveProps } from "./about-our-objectives"
 import { AboutUsAdvisoryCouncilProps } from "./about-advisory-council"
 import { AboutUsOurTeamProps } from "./about-our-team"
+import { AboutUsOurVolunteerProps } from "./about-our-volunteers"
 
 export { default as HomepageHero } from "./hero"
 export { default as HomepageFeatureList } from "./feature-list"
@@ -35,6 +36,7 @@ export { default as AboutTheMoto } from "./about-moto-block"
 export { default as AboutUsObjective } from "./about-our-objectives"
 export { default as AboutUsAdvisoryCouncil } from "./about-advisory-council"
 export { default as AboutUsOurTeam } from "./about-our-team"
+export { default as AboutUsOurVolunteer } from "./about-our-volunteers"
 export { default as HomepageOurProgram } from "./our-program-home"
 
 export type SectionProps =
@@ -52,6 +54,7 @@ export type SectionProps =
   | AboutUsObjectiveProps
   | AboutUsAdvisoryCouncilProps
   | AboutUsOurTeamProps
+  | AboutUsOurVolunteerProps
   | HomepageIntroProps
   | HomepageFocusAreaProps
   | HomepageOurWorkProps
@@ -76,6 +79,7 @@ type Blocktypes =
   | "AboutUsObjective"
   | "AboutUsAdvisoryCouncil"
   | "AboutUsOurTeam"
+  | "AboutUsOurVolunteer"
 
 type WithBlocktype<B = Blocktypes, P = SectionProps> = {
   id: string
@@ -101,3 +105,4 @@ export type HomepageBlock =
   | WithBlocktype<"AboutUsObjective", AboutUsObjectiveProps>
   | WithBlocktype<"AboutUsAdvisoryCouncil", AboutUsAdvisoryCouncilProps>
   | WithBlocktype<"AboutUsOurTeam", AboutUsOurTeamProps>
+  | WithBlocktype<"AboutUsOurVolunteer", AboutUsOurVolunteerProps>

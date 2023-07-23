@@ -15,14 +15,13 @@ type TeamMember = {
     photo: HomepageImage;
 }
 
-export interface AboutUsOurTeamProps {
+export interface AboutUsOurVolunteerProps {
     id: string
     title: string
-    listOfTeamMembers: TeamMember[]
+    listOfVolunteer: TeamMember[]
 }
 
-export default function AboutUsOurTeam({ id, title, listOfTeamMembers }: AboutUsOurTeamProps) {
-
+export default function AboutUsOurVolunteer({ id, title, listOfVolunteer }: AboutUsOurVolunteerProps) {
     const TeamBlock = ({ id, name, title, photo }) => (
         <Box center className={styles.TeamBlock} padding={0} style={{
             padding: 0
@@ -48,7 +47,7 @@ export default function AboutUsOurTeam({ id, title, listOfTeamMembers }: AboutUs
                     fontSize: theme.customFontSizes[2]
                 }} />
                 <FlexList gap={3} variant="responsive" alignItems="spaceBetween">
-                    {listOfTeamMembers.map((teamBlock: TeamMember) => (
+                    {listOfVolunteer.map((teamBlock: TeamMember) => (
                         <li key={teamBlock.id}>
                             <TeamBlock {...teamBlock} />
                         </li>
@@ -60,10 +59,10 @@ export default function AboutUsOurTeam({ id, title, listOfTeamMembers }: AboutUs
 }
 
 export const query = graphql`
-  fragment AboutUsOurTeamContent on AboutUsOurTeam {
+  fragment AboutUsOurVolunteerContent on AboutUsOurVolunteer {
     id
     title
-    listOfTeamMembers {
+    listOfVolunteer {
         name
         title
         photo {
