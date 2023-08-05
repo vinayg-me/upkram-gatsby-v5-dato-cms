@@ -16,6 +16,8 @@ import {
 import { BlogAuthor, BlogPost } from "../../templates/blog-post"
 import SEOHead from "../../components/head"
 import { graphql } from "gatsby"
+import { theme } from "../../theme.css"
+import StyledTitle from "../../utils/StyledTitle"
 interface PostCardSmallProps {
   slug: string
   image?: HomepageImage
@@ -98,17 +100,21 @@ export default function BlogIndex({ data }: BlogIndexPageProps) {
     <Layout>
       <Container>
         <Box paddingY={4}>
-          <Heading as="h1">Our Featured Blogs</Heading>
+          <StyledTitle text="Our Featured Blogs" n={2} style={{
+            fontSize: theme.customFontSizes[2]
+          }} />
           <FlexList variant="start" gap={0} gutter={3} responsive>
             {featuredPosts.map((post) => (
-              <Box as="li" key={post.id} padding={3} width={featuredPosts.length < 2 ? "full": "half"}>
+              <Box as="li" key={post.id} padding={3} width={featuredPosts.length < 2 ? "full" : "half"}>
                 <PostCard {...post} />
               </Box>
             ))}
           </FlexList>
         </Box>
         <Box paddingY={4}>
-          <Subhead>More Blogs</Subhead>
+        <StyledTitle text="More Blogs" n={1} style={{
+            fontSize: theme.customFontSizes[2]
+          }} />
           <FlexList responsive wrap gap={0} gutter={3} variant="start">
             {regularPosts.map((post) => (
               <Box as="li" key={post.id} padding={3} width="third">

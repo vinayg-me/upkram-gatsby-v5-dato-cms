@@ -15,6 +15,8 @@ import {
 import { avatar as avatarStyle } from "../components/ui.css"
 import * as styles from "./blog-post.css"
 import SEOHead from "../components/head"
+import { theme } from "../theme.css"
+import StyledTitle from "../utils/StyledTitle"
 
 export interface BlogAuthor {
   id: string
@@ -50,12 +52,8 @@ export default function BlogPost(props: BlogPostProps) {
     <Layout>
       <Container>
         <Box paddingY={5}>
-          <Heading as="h1" center>
-            {blogDetails.title}
-          </Heading>
-          <Space size={4} />
           {blogDetails.author && (
-            <Box center>
+            <Box>
               <Flex>
                 {blogDetails.author.avatar &&
                   (!!blogDetails.author.avatar.gatsbyImageData ? (
@@ -70,12 +68,19 @@ export default function BlogPost(props: BlogPostProps) {
                       className={avatarStyle}
                     />
                   ))}
-                <Text variant="bold">{blogDetails.author.name}</Text>
+                <div>
+                  <Text variant="bold">{blogDetails.author.name}</Text>
+                  <Text variant="body">{blogDetails.date}</Text>
+                </div>
               </Flex>
             </Box>
           )}
+          <Space size={1} />
+          <StyledTitle text={blogDetails.title} n={0} style={{
+            fontSize: theme.customFontSizes[2]
+          }} />
           <Space size={4} />
-          <Text center>{blogDetails.date}</Text>
+          <Space size={4} />
           <Space size={4} />
           {blogDetails.image && (
             <GatsbyImage
