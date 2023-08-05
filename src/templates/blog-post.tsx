@@ -11,12 +11,15 @@ import {
   Text,
   Avatar,
   HomepageImage,
+  IconLink,
+  VisuallyHidden,
 } from "../components/ui"
-import { avatar as avatarStyle } from "../components/ui.css"
+import { avatar as avatarStyle, link } from "../components/ui.css"
 import * as styles from "./blog-post.css"
 import SEOHead from "../components/head"
 import { theme } from "../theme.css"
 import StyledTitle from "../utils/StyledTitle"
+import { ArrowLeft } from "react-feather"
 
 export interface BlogAuthor {
   id: string
@@ -45,15 +48,19 @@ export interface BlogPostProps {
 }
 
 export default function BlogPost(props: BlogPostProps) {
-  console.log("🚀 ~ file: blog-post.tsx:40 ~ BlogPost ~ data:", props.data)
   const blogDetails = props.data.datoCmsBlogpost;
-  console.log("🚀 ~ file: blog-post.tsx:48 ~ BlogPost ~ blogDetails:", blogDetails)
   return (
     <Layout>
       <Container>
         <Box paddingY={5}>
           {blogDetails.author && (
             <Box>
+              <Flex>
+                <IconLink to={'../'} className={styles.BackContainer}>
+                  <ArrowLeft />
+                  <Text variant="bold" className={styles.BackText} >Back to Blogs</Text>
+                </IconLink>
+              </Flex>
               <Flex>
                 {blogDetails.author.avatar &&
                   (!!blogDetails.author.avatar.gatsbyImageData ? (

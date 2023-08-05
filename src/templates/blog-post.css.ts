@@ -65,3 +65,13 @@ globalStyle(`${blogPost} h5, ${blogPost} h6`, {
   fontSize: theme.fontSizes[2],
   fontWeight: theme.fontWeights.bold,
 })
+
+export const BackContainer = style({
+  display: "flex",
+  flex: 1,
+  flexDirection: "row",
+})
+
+export const BackText = style({
+  marginLeft: "0.5rem",
+})
