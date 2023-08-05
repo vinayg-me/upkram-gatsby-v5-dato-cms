@@ -4,8 +4,9 @@ import { Section, Container, Heading, Text, EmbeddedText, HomepageImage, FlexLis
 import * as styles from "../components/homepage-intro.css"
 import StyledTitle from "../utils/StyledTitle"
 import * as ourProgramStyles from "../components/our-program-home.css"
+import * as aboutStyles from "../components/about-hero.css"
 import { theme } from "../theme.css"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 
 
@@ -43,6 +44,13 @@ export default function HomepageOurProgram(props: OurProgramPageProps) {
                     <StyledTitle text={programTitle} n={1} style={{
                         fontSize: theme.customFontSizes[2]
                     }} />
+                    {programImage && (
+                        <GatsbyImage
+                            alt={programImage.alt}
+                            image={getImage(programImage.gatsbyImageData)}
+                            className={aboutStyles.aboutHeroImage}
+                        />
+                    )}
                     <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: programContent }}></EmbeddedText>
                 </Container>
             </Section>
