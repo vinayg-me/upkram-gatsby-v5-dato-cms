@@ -953,8 +953,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
   `)
 }
 
-exports.createPages = ({ actions }) => {
-  const { createSlice } = actions
+exports.createPages = async ({ actions, graphql }) => {
+  const { createSlice, createPage } = actions
   createSlice({
     id: "header",
     component: require.resolve("./src/components/header.tsx"),
@@ -962,5 +962,27 @@ exports.createPages = ({ actions }) => {
   createSlice({
     id: "footer",
     component: require.resolve("./src/components/footer.tsx"),
+  })
+  const { data } = await graphql(`
+    query allBlogsIdQuery {
+      allDatoCmsBlogpost {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  `)
+  data.allDatoCmsBlogpost.edges.forEach(edge => {
+    const { id, slug } = edge.node
+    createPage({
+      path: `/blogs/${slug}`,
+      component: require.resolve(`./src/templates/blog-post.tsx`),
+      context: {
+        id
+      },
+    })
   })
 }
