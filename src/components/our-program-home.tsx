@@ -14,6 +14,7 @@ export type Program = {
     programShortDescription: String;
     programTitle: String;
     programImage: HomepageImage;
+    slug: String;
 }
 export interface HomepageOurProgramProps {
     id: any
@@ -24,7 +25,7 @@ export interface HomepageOurProgramProps {
 
 export default function HomepageOurProgram(props: HomepageOurProgramProps) {
     const { sectionDescription, sectionTitle, listOfPrograms = [] } = props;
-    const SingleProgram = ({ id, programShortDescription, programTitle, programImage, featured = false }) => (
+    const SingleProgram = ({ id, programShortDescription, programTitle, programImage, featured = false, slug }) => (
         <Box key={id} className={featured ? ourProgramStyles.OurProgramBlock : ourProgramStyles.Column}>
             <div className={ourProgramStyles.OurProgramImageContainer}>
                 {programImage && (
@@ -40,7 +41,7 @@ export default function HomepageOurProgram(props: HomepageOurProgramProps) {
             <Text className={ourProgramStyles.OurProgramBlockTitle}>{programTitle}</Text>
             <EmbeddedText className={styles.EmbeddedTextStyle} dangerouslySetInnerHTML={{ __html: programShortDescription }}></EmbeddedText>
             <div className={ourProgramStyles.ReadMoreButtonContainer}>
-                <Link to="/programs" className={ourProgramStyles.ReadMoreButton}>Read More</Link>
+                <Link to={`/programs/${slug}`} className={ourProgramStyles.ReadMoreButton}>Read More</Link>
             </div>
         </Box>
     )

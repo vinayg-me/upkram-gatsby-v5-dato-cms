@@ -338,6 +338,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       programShortDescription: String
       programTitle: String
       programImage: HomepageImage
+      slug: String
     }
 
     interface HomepageOurProgram implements Node & HomepageBlock {
@@ -755,6 +756,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       programShortDescription: String
       programTitle: String
       programImage: HomepageImage
+      slug: String
     }
 
 
@@ -982,6 +984,28 @@ exports.createPages = async ({ actions, graphql }) => {
       component: require.resolve(`./src/templates/blog-post.tsx`),
       context: {
         id
+      },
+    })
+  })
+  // Creating Program Page
+  const { data: programData = {} } = await graphql(`
+    query MyQuery {
+      homepageOurProgram {
+        listOfPrograms {
+          id
+          slug
+        }
+      }
+    }
+  `)
+  programData.homepageOurProgram.listOfPrograms.forEach(program => {
+    const { id, slug } = program
+    createPage({
+      path: `/programs/${slug}`,
+      component: require.resolve(`./src/templates/our-program.tsx`),
+      context: {
+        id,
+        slug
       },
     })
   })
