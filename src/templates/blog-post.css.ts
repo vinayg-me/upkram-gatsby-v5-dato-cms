@@ -31,20 +31,20 @@ const containedElements = [
   .map((el) => blogPost + " " + el)
   .join(", ")
 
-globalStyle(containedElements, {
-  maxWidth: theme.sizes.tight,
-  marginLeft: "auto",
-  marginRight: "auto",
-})
+// globalStyle(containedElements, {
+//   maxWidth: theme.sizes.tight,
+//   marginLeft: "auto",
+//   marginRight: "auto",
+// })
 
 globalStyle(`${blogPost} p`, {
   lineHeight: theme.lineHeights.text,
 })
 
-globalStyle(`${blogPost} > p:first-of-type`, {
-  fontSize: theme.fontSizes[4],
-  fontWeight: theme.fontWeights.bold,
-})
+// globalStyle(`${blogPost} > p:first-of-type`, {
+//   fontSize: theme.fontSizes[4],
+//   fontWeight: theme.fontWeights.bold,
+// })
 
 globalStyle(`${blogPost} h2`, {
   fontSize: theme.fontSizes[5],
@@ -64,4 +64,14 @@ globalStyle(`${blogPost} h4`, {
 globalStyle(`${blogPost} h5, ${blogPost} h6`, {
   fontSize: theme.fontSizes[2],
   fontWeight: theme.fontWeights.bold,
+})
+
+export const BackContainer = style({
+  display: "flex",
+  flex: 1,
+  flexDirection: "row",
+})
+
+export const BackText = style({
+  marginLeft: "0.5rem",
 })
