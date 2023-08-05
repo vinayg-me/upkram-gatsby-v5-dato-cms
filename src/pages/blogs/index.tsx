@@ -1,6 +1,6 @@
 import * as React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../components/layout"
+import Layout from "../../components/layout"
 import {
   Container,
   FlexList,
@@ -12,9 +12,12 @@ import {
   Kicker,
   Text,
   HomepageImage,
-} from "../components/ui"
-import { BlogAuthor, BlogPost } from "./blog-post"
-import SEOHead from "../components/head"
+} from "../../components/ui"
+import { BlogAuthor, BlogPost } from "../../templates/blog-post"
+import SEOHead from "../../components/head"
+import { graphql } from "gatsby"
+import { theme } from "../../theme.css"
+import StyledTitle from "../../utils/StyledTitle"
 interface PostCardSmallProps {
   slug: string
   image?: HomepageImage
@@ -37,7 +40,7 @@ function PostCard({
   ...props
 }: PostCardProps) {
   return (
-    <BlockLink {...props} to={`/blog/${slug}`}>
+    <BlockLink {...props} to={`/blogs/${slug}`}>
       {image && (
         <>
           <GatsbyImage alt={image.alt} image={image.gatsbyImageData} />
@@ -66,7 +69,7 @@ function PostCardSmall({
   ...props
 }: PostCardSmallProps) {
   return (
-    <BlockLink {...props} to={`/blog/${slug}`}>
+    <BlockLink {...props} to={`/blogs/${slug}`}>
       {image && (
         <>
           <GatsbyImage alt={image.alt} image={image.gatsbyImageData} />
@@ -84,8 +87,12 @@ function PostCardSmall({
 export interface BlogIndexProps {
   posts: BlogPost[]
 }
+export interface BlogIndexPageProps {
+  data: any
+}
 
-export default function BlogIndex({ posts }: BlogIndexProps) {
+export default function BlogIndex({ data }: BlogIndexPageProps) {
+  const posts = data.allDatoCmsBlogpost.edges.map((edge: any) => edge.node)
   const featuredPosts = posts.filter((p) => p.category === "Featured")
   const regularPosts = posts.filter((p) => p.category !== "Featured")
 
@@ -93,17 +100,21 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
     <Layout>
       <Container>
         <Box paddingY={4}>
-          <Heading as="h1">Our Blogs</Heading>
+          <StyledTitle text="Our Featured Blogs" n={2} style={{
+            fontSize: theme.customFontSizes[2]
+          }} />
           <FlexList variant="start" gap={0} gutter={3} responsive>
             {featuredPosts.map((post) => (
-              <Box as="li" key={post.id} padding={3} width="half">
+              <Box as="li" key={post.id} padding={3} width={featuredPosts.length < 2 ? "full" : "half"}>
                 <PostCard {...post} />
               </Box>
             ))}
           </FlexList>
         </Box>
         <Box paddingY={4}>
-          <Subhead>Product Updates</Subhead>
+        <StyledTitle text="More Blogs" n={1} style={{
+            fontSize: theme.customFontSizes[2]
+          }} />
           <FlexList responsive wrap gap={0} gutter={3} variant="start">
             {regularPosts.map((post) => (
               <Box as="li" key={post.id} padding={3} width="third">
@@ -116,6 +127,40 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
     </Layout>
   )
 }
+
+export const query = graphql`
+query allBlogsIdQuery {
+  allDatoCmsBlogpost {
+    edges {
+      node {
+        id
+        slug
+        category
+        date
+        excerpt
+        image {
+          alt
+          gatsbyImageData
+          title
+          url
+        }
+        author {
+          avatar {
+            alt
+            url
+            title
+            gatsbyImageData
+            author
+          }
+          name
+          id
+        }
+        title
+      }
+    }
+  }
+}
+`
 export const Head = () => {
   return <SEOHead title="Blog" />
 }

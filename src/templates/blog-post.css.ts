@@ -31,20 +31,20 @@ const containedElements = [
   .map((el) => blogPost + " " + el)
   .join(", ")
 
-globalStyle(containedElements, {
-  maxWidth: theme.sizes.tight,
-  marginLeft: "auto",
-  marginRight: "auto",
-})
+// globalStyle(containedElements, {
+//   maxWidth: theme.sizes.tight,
+//   marginLeft: "auto",
+//   marginRight: "auto",
+// })
 
 globalStyle(`${blogPost} p`, {
   lineHeight: theme.lineHeights.text,
 })
 
-globalStyle(`${blogPost} > p:first-of-type`, {
-  fontSize: theme.fontSizes[4],
-  fontWeight: theme.fontWeights.bold,
-})
+// globalStyle(`${blogPost} > p:first-of-type`, {
+//   fontSize: theme.fontSizes[4],
+//   fontWeight: theme.fontWeights.bold,
+// })
 
 globalStyle(`${blogPost} h2`, {
   fontSize: theme.fontSizes[5],

@@ -15,6 +15,8 @@ import {
 import { avatar as avatarStyle } from "../components/ui.css"
 import * as styles from "./blog-post.css"
 import SEOHead from "../components/head"
+import { theme } from "../theme.css"
+import StyledTitle from "../utils/StyledTitle"
 
 export interface BlogAuthor {
   id: string
@@ -29,56 +31,68 @@ export interface BlogPost {
   excerpt: string
   category: string
   date: string
-  html: string
+  content: string
   image: HomepageImage
   author: BlogAuthor
   next?: BlogPost
   previous?: BlogPost
 }
 
-export default function BlogPost(props: BlogPost) {
+export interface BlogPostProps {
+  data: {
+    datoCmsBlogpost: BlogPost
+  }
+}
+
+export default function BlogPost(props: BlogPostProps) {
+  console.log("🚀 ~ file: blog-post.tsx:40 ~ BlogPost ~ data:", props.data)
+  const blogDetails = props.data.datoCmsBlogpost;
+  console.log("🚀 ~ file: blog-post.tsx:48 ~ BlogPost ~ blogDetails:", blogDetails)
   return (
     <Layout>
       <Container>
         <Box paddingY={5}>
-          <Heading as="h1" center>
-            {props.title}
-          </Heading>
-          <Space size={4} />
-          {props.author && (
-            <Box center>
+          {blogDetails.author && (
+            <Box>
               <Flex>
-                {props.author.avatar &&
-                  (!!props.author.avatar.gatsbyImageData ? (
+                {blogDetails.author.avatar &&
+                  (!!blogDetails.author.avatar.gatsbyImageData ? (
                     <Avatar
-                      {...props.author.avatar}
-                      image={props.author.avatar.gatsbyImageData}
+                      {...blogDetails.author.avatar}
+                      image={blogDetails.author.avatar.gatsbyImageData}
                     />
                   ) : (
                     <img
-                      src={props.author.avatar.url}
-                      alt={props.author.name}
+                      src={blogDetails.author.avatar.url}
+                      alt={blogDetails.author.name}
                       className={avatarStyle}
                     />
                   ))}
-                <Text variant="bold">{props.author.name}</Text>
+                <div>
+                  <Text variant="bold">{blogDetails.author.name}</Text>
+                  <Text variant="body">{blogDetails.date}</Text>
+                </div>
               </Flex>
             </Box>
           )}
+          <Space size={1} />
+          <StyledTitle text={blogDetails.title} n={0} style={{
+            fontSize: theme.customFontSizes[2]
+          }} />
           <Space size={4} />
-          <Text center>{props.date}</Text>
           <Space size={4} />
-          {props.image && (
+          <Space size={4} />
+          {blogDetails.image && (
             <GatsbyImage
-              alt={props.image.alt}
-              image={props.image.gatsbyImageData}
+              alt={blogDetails.image.alt}
+              image={blogDetails.image.gatsbyImageData}
             />
           )}
           <Space size={5} />
           <div
             className={styles.blogPost}
             dangerouslySetInnerHTML={{
-              __html: props.html,
+              __html: blogDetails.content,
             }}
           />
         </Box>
@@ -86,6 +100,35 @@ export default function BlogPost(props: BlogPost) {
     </Layout>
   )
 }
-export const Head = (props: BlogPost) => {
-  return <SEOHead {...props} description={props.excerpt} />
+
+export const query = graphql`
+  query BlogQuery($id:String) {
+    datoCmsBlogpost(id: {eq: $id}) {
+      content
+      category
+      id
+      title
+      slug
+      date
+      excerpt
+      author {
+        name
+        avatar {
+          alt
+          gatsbyImageData
+          url
+          title
+        }
+      }
+      image {
+        alt
+        gatsbyImageData
+        title
+        url
+      }
+    }
+  }
+`
+export const Head = (props: BlogPostProps) => {
+  return <SEOHead {...props.data.datoCmsBlogpost} description={props.data.datoCmsBlogpost.excerpt} />
 }
