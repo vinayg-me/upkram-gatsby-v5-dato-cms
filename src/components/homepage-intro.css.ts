@@ -5,6 +5,7 @@ import { media } from "./ui.css"
 export const EmbeddedTextStyle = style({
     color: theme.colors.text,
     fontSize: theme.customFontSizes[1],
+    maxWidth: "100%",
     "@media": {
         [media.smallMobile]: {
             fontSize: theme.fontSizes[2],
