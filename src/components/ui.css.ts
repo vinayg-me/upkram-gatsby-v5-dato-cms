@@ -12,6 +12,7 @@ export const media = {
   smallMobile: `screen and (max-width: ${responsiveBreakpoints[1]}px)`,
   mobile: `screen and (min-width: ${responsiveBreakpoints[1]+1}px) and (max-width: ${responsiveBreakpoints[2]}px)`,
   tablet: `screen and (min-width: ${responsiveBreakpoints[2]+1}px) and (max-width: ${responsiveBreakpoints[3]}px)`,
+  tabletUp: `screen and (min-width: ${responsiveBreakpoints[2]+1}px)`,
   desktop: `screen and (min-width: ${responsiveBreakpoints[3]+1}px) and (max-width: ${responsiveBreakpoints[4]}px)`,
   desktopUp: `screen and (min-width: ${responsiveBreakpoints[4]+1}px)`,
 }

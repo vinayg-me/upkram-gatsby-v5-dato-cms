@@ -141,7 +141,7 @@ export default function Header() {
               <BrandLogo />
             </NavLink>
           </span>
-          <Flex>
+          <Flex style={{ width: '100%'}}>
             <Space />
             <div>
               {cta && (
