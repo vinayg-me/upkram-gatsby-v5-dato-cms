@@ -9,13 +9,13 @@ export const navGroupWrapper = style({
 
 export const navGroupTitle = style([
   mobileNavLink,
-  { ":hover": { color: theme.colors.background } },
+  { ":hover": { color: theme.colors.muted } },
   {
     "@media": {
-      [media.small]: {
+      [media.medium]: {
         padding: 0,
-        alignItems: "baseline",
-        color: "inherit",
+        alignItems: "center",
+        color: theme.colors.text,
         fontSize: "inherit",
         ":hover": { color: theme.colors.active },
       },
@@ -25,8 +25,8 @@ export const navGroupTitle = style([
 
 export const navGroupTitleInner = style({
   "@media": {
-    [media.small]: {
-      alignItems: "baseline",
+    [media.medium]: {
+      alignItems: "center",
     },
   },
 })
@@ -36,7 +36,7 @@ const navLinkListWrapperBase = style({
   whiteSpace: "nowrap",
   width: "fit-content",
   "@media": {
-    [media.small]: {
+    [media.medium]: {
       position: "absolute",
       background: theme.colors.background,
       padding: `${theme.space[3]} ${theme.space[3]} ${theme.space[0]} ${theme.space[3]}`,
@@ -70,7 +70,7 @@ export const navLinkListWrapper = styleVariants({
     navLinkListWrapperBase,
     {
       "@media": {
-        [media.small]: {
+        [media.medium]: {
           animation: "zoomInUp 0.15s ease-in-out",
         },
       },
@@ -80,7 +80,7 @@ export const navLinkListWrapper = styleVariants({
     navLinkListWrapperBase,
     {
       "@media": {
-        [media.small]: {
+        [media.medium]: {
           animation: "zoomOutDown 0.15s ease-in-out",
           animationFillMode: "forwards",
         },
@@ -95,7 +95,7 @@ export const navLinkListWrapperInner = style({
   "@media": {
     [media.small]: {
       paddingLeft: 0,
-      alignItems: "stretch",
+      alignItems: "center",
     },
   },
 })

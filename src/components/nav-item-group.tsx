@@ -29,7 +29,7 @@ export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [popupVisible, setPopupVisible] = React.useState(false)
   const isSmallScreen = () => {
-    return !window.matchMedia(media.small).matches
+    return !window.matchMedia(media.medium).matches
   }
   const onGroupButtonClick = React.useCallback(() => {
     if (!isOpen) {
@@ -85,7 +85,7 @@ export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
   return (
     <Flex
       data-id={`${name}-group-wrapper`}
-      variant="columnStart"
+      variant="responsive"
       gap={4}
       className={styles.navGroupWrapper}
     >
@@ -106,7 +106,7 @@ export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
           }
         >
           <FlexList
-            variant="columnStart"
+            variant={isSmallScreen() ? "center" : "columnStart"}
             gap={2}
             className={styles.navLinkListWrapperInner}
           >
@@ -137,7 +137,8 @@ export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
             ))}
           </FlexList>
         </Box>
-      )}
-    </Flex>
+      )
+      }
+    </Flex >
   )
 }

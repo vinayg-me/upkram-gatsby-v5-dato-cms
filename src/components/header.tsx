@@ -119,7 +119,7 @@ export default function Header() {
                         navItems={navItem.navItems}
                       />
                     ) : (
-                      <NavLink to={navItem.href}>{navItem.text}</NavLink>
+                      <NavLink to={navItem.href} activeStyle={{ color: theme.colors.active }} partiallyActive={navItem.href.includes('/blogs')}>{navItem.text}</NavLink>
                     )}
                   </li>
                 ))}
