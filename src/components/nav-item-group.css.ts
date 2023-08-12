@@ -36,7 +36,7 @@ const navLinkListWrapperBase = style({
   whiteSpace: "nowrap",
   width: "fit-content",
   "@media": {
-    [media.medium]: {
+    [media.tabletUp]: {
       position: "absolute",
       background: theme.colors.background,
       padding: `${theme.space[3]} ${theme.space[3]} ${theme.space[0]} ${theme.space[3]}`,
@@ -70,7 +70,7 @@ export const navLinkListWrapper = styleVariants({
     navLinkListWrapperBase,
     {
       "@media": {
-        [media.medium]: {
+        [media.tabletUp]: {
           animation: "zoomInUp 0.15s ease-in-out",
         },
       },
@@ -80,7 +80,7 @@ export const navLinkListWrapper = styleVariants({
     navLinkListWrapperBase,
     {
       "@media": {
-        [media.medium]: {
+        [media.tabletUp]: {
           animation: "zoomOutDown 0.15s ease-in-out",
           animationFillMode: "forwards",
         },
