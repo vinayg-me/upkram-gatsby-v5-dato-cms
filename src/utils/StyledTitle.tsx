@@ -12,7 +12,7 @@ export default function StyledTitle({ text, n, style = {} }) {
 
     // Create a new array of styled spans for each word
     const styledWords = words.map((word, index) => {
-        const color = index >= startIndex ? 'red' : 'black';
+        const color = index >= startIndex ? '#b11117' : 'black';
         return (
             <span key={index} style={{ color }}>
                 {word}{' '}

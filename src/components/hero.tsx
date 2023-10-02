@@ -12,6 +12,7 @@ import {
   Text
 } from "./ui"
 import { heroHeading, heroSubheading, skewedBackground, textOverlay } from "./hero.css"
+import { media } from "./ui.css"
 
 export interface HeroProps {
   image: HomepageImage
@@ -26,48 +27,38 @@ export default function Hero(props: HeroProps) {
     subhead,
     image: {
       alt,
-      url
+      url,
+      gatsbyImageData
     }
   } = props;
+  
+  const isSmallScreen = () => {
+    const isBrowser = typeof window !== "undefined";
+    if (isBrowser) {
+      return !window.matchMedia(media.medium).matches;
+    }
+    return false;
+  }
+
+  const getJumbotronHeight = () => {
+    return isSmallScreen() ? 240 : 600;
+  }
+
   return (
-    <Section>
-        <div style={{ display: "grid" }}>
-          {/* You can use a GatsbyImage component if the image is dynamic */}
-          <StaticImage
-            style={{
-              gridArea: "1/1",
-              // You can set a maximum height for the image, if you wish.
-              minHeight: 240,
-              maxHeight: 600,
-            }}
-            layout="fullWidth"
-            // You can optionally force an aspect ratio for the generated image
-            aspectRatio={3 / 1}
-            // This is a presentational image, so the alt should be an empty string
-            alt={alt}
-            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
-            src={"https://www.datocms-assets.com/102566/1686398504-homejumbotron.jpg?auto=format"}
-            formats={["auto", "webp", "avif"]}
-          />
-          <div
-            style={{
-              // By using the same grid area for both, they are stacked on top of each other
-              gridArea: "1/1",
-              position: "relative",
-              // This centers the other elements inside the hero component
-              placeItems: "start",
-              display: "grid",
-            }}
-          >
-            {/* Any content here will be centered in the component */}
-            <div className={skewedBackground}>
-              <div className={textOverlay}>
-                <h1 className={heroHeading}>{h1}</h1>
-                <p className={heroSubheading}>{subhead}</p>
-              </div>
-            </div>
+    <Section style={{height: getJumbotronHeight()}}>
+      <div style={{ position: "relative", minHeight: 240, height: '100%' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          alt={alt}
+          style={{ position: "absolute", width: "100%", height: "100%", minHeight: 240, maxHeight: 600 }}
+        />
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", justifyContent: "center", alignItems: "center" }} className={skewedBackground}>
+          <div className={textOverlay}>
+            <h1 className={heroHeading}>{h1}</h1>
+            <p className={heroSubheading}>{subhead}</p>
           </div>
         </div>
+      </div>
     </Section>
   )
 }
@@ -88,6 +79,7 @@ export const query = graphql`
       id
       alt
       url
+      gatsbyImageData
     }
   }
 `

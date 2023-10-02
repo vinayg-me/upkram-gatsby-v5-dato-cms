@@ -46,19 +46,22 @@ export const textOverlay = style({
 })
 
 export const heroHeading = style({
-    fontSize: theme.fontSizes[7],
+    fontSize: theme.fontSizes[6],
     fontWeight: theme.fontWeights.semibold,
     marginTop: theme.space[2],
     marginBottom: theme.space[2],
     "@media": {
         [media.smallMobile]: {
             fontSize: theme.fontSizes[4],
+            textAlign: 'center'
         },
         [media.mobile]: {
             fontSize: theme.fontSizes[4],
+            textAlign: 'center'
         },
         [media.tablet]: {
-            fontSize: theme.fontSizes[6],
+            fontSize: theme.fontSizes[4],
+            textAlign: 'center'
         },
     },
 })

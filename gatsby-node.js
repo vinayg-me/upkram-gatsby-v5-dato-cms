@@ -404,6 +404,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       footerCtaText: String
       footerCtaButton: [HomepageLink]
       emailAddress: String
+      phoneNumbers: String
       address: String
       copyright: String
       entityPayload: JSON
@@ -927,6 +928,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       socialLinks: [SocialLink]
       emailAddress: String
       address: String
+      phoneNumbers: String
       copyright: String
       originalId: String
       entityPayload: JSON

@@ -29,7 +29,11 @@ export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [popupVisible, setPopupVisible] = React.useState(false)
   const isSmallScreen = () => {
-    return !window.matchMedia(media.medium).matches
+    const isBrowser = typeof window !== "undefined";
+    if (isBrowser) {
+      return !window.matchMedia(media.medium).matches;
+    }
+    return false;
   }
   const onGroupButtonClick = React.useCallback(() => {
     if (!isOpen) {
