@@ -31,10 +31,13 @@ export default function Hero(props: HeroProps) {
       gatsbyImageData
     }
   } = props;
-  console.log("🚀 ~ file: hero.tsx:31 ~ Hero ~ gatsbyImageData:", gatsbyImageData)
-
+  
   const isSmallScreen = () => {
-    return !window.matchMedia(media.medium).matches
+    const isBrowser = typeof window !== "undefined";
+    if (isBrowser) {
+      return !window.matchMedia(media.medium).matches;
+    }
+    return false;
   }
 
   const getJumbotronHeight = () => {
