@@ -41,7 +41,7 @@ export default function Hero(props: HeroProps) {
   }
 
   const getJumbotronHeight = () => {
-    return isSmallScreen() ? 240 : 600;
+    return isSmallScreen() ? 240 : 700;
   }
 
   return (
@@ -50,7 +50,8 @@ export default function Hero(props: HeroProps) {
         <GatsbyImage
           image={gatsbyImageData}
           alt={alt}
-          style={{ position: "absolute", width: "100%", height: "100%", minHeight: 240, maxHeight: 600 }}
+          style={{ position: "absolute", width: "100%", height: "100%", minHeight: 240, maxHeight: 700 }}
+          imgStyle={{ objectFit: 'fill'}}
         />
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", justifyContent: "center", alignItems: "center" }} className={skewedBackground}>
           <div className={textOverlay}>
