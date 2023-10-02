@@ -33,7 +33,7 @@ export default function ContactUsForm() {
             <div>
                 <label className={styles.FormLabel}>{label}</label>
                 {type !== 'textArea' && (<input type={type} name={name} className={styles.FormInput} required />)}
-                {type === 'textArea' && (<textarea name={name} className={styles.FormTextArea} />)}
+                {type === 'textArea' && (<textarea name={name} rows={5} cols={50} className={styles.FormTextArea}/>)}
             </div>
         )
     }

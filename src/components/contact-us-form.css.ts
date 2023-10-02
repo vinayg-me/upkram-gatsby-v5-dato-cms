@@ -27,9 +27,6 @@ export const FormInput = style({
 })
 
 export const FormTextArea = style({
-    height: 96,
-    lineHeight: 24,
-    width: 480,
     marginTop: 8,
     marginBottom: 8,
     border: '1px solid var(--Light-Stroke, #D9D9D9)',
