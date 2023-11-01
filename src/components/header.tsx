@@ -125,7 +125,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button variant="red" to="/donate-upkram">{cta.text}</Button>}</div>
+          <div>{cta && <Button variant="red" to={cta.href}>{cta.text}</Button>}</div>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -145,7 +145,7 @@ export default function Header() {
             <Space />
             <div>
               {cta && (
-                <Button to="/donate-upkram" variant="red" style={{
+                <Button to={cta.href} variant="red" style={{
                   textAlign: 'center'
                 }}>
                   {cta.text}
