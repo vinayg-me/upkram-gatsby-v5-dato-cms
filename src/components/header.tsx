@@ -145,7 +145,7 @@ export default function Header() {
             <Space />
             <div>
               {cta && (
-                <Button to={cta.href} variant="red" style={{
+                <Button to="/donate-upkram" variant="red" style={{
                   textAlign: 'center'
                 }}>
                   {cta.text}
