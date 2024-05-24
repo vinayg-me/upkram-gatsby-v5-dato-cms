@@ -3,7 +3,7 @@ import * as React from "react"
 export default function GatsbyUpkramLogo() {
   return (
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      width="120px" height="60px" viewBox="0 0 2016 1032" enable-background="new 0 0 2016 1032" xmlSpace="preserve">
+      width="120px" height="60px" viewBox="0 0 2016 1032" enableBackground="new 0 0 2016 1032" xmlSpace="preserve">
       <path fill="#FFFFFF" opacity="1.000000" stroke="none"
         d="
 M0.999999,697.000000 
