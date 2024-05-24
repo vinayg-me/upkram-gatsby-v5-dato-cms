@@ -83,7 +83,7 @@ export default function Hero(props: HeroProps) {
 
   return (
     <Section style={{ height: getJumbotronHeight() }}>
-      {isSmallScreen() ? <HeroContent /> : <DesktopHero />}
+        {isSmallScreen() ? <HeroContent /> : <DesktopHero />}
     </Section>
   )
 }

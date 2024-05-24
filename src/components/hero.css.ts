@@ -8,7 +8,7 @@ export const skewedBackground = style({
   left: 0,
   width: "100%",
   height: "100%",
-  background: "rgba(255,255,255,0.8)",
+  background: "rgba(255,255,255,0.44)",
   "@media": {
     [media.desktopUp]: {
       transform: "skewX(-15deg)",
@@ -26,7 +26,7 @@ export const textOverlay = style({
   bottom: 0,
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "flex-end",
   padding: "0 1rem",
   flexDirection: "column",
   marginLeft: "auto",
@@ -40,6 +40,7 @@ export const textOverlay = style({
       height: "100%",
       marginLeft: "auto",
       marginRight: "auto",
+      justifyContent: "center",
     },
   },
   width: "80%",
