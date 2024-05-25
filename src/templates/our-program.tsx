@@ -20,6 +20,7 @@ import { theme } from "../theme.css"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import KeyStatistics from "../components/KeyStatistics"
+import FilmStripCarousel from "../components/film-strip-carousel"
 
 export type KeyStatistic = {
   subTitle: string
@@ -32,6 +33,7 @@ export type Program = {
   programShortDescription: String
   programTitle: String
   programImage: HomepageImage
+  programPhotos?: [HomepageImage]
   listOfKeyStatistics: [KeyStatistic]
   slug: String
 }
@@ -64,6 +66,7 @@ export default function HomepageOurProgram(props: OurProgramPageProps) {
     programImage,
     slug,
     listOfKeyStatistics,
+    programPhotos,
   } = datoCmsProgram
 
   return (
@@ -90,6 +93,11 @@ export default function HomepageOurProgram(props: OurProgramPageProps) {
           ></EmbeddedText>
         </Container>
       </Section>
+      <Section>
+        <Container>
+          <FilmStripCarousel images={programPhotos} />
+        </Container>
+      </Section>
       <Section background="primary">
         <Container>
           <FlexList gap={2} variant="responsive" >
@@ -106,6 +114,15 @@ export const query = graphql`
     datoCmsProgram(id: { eq: $id }) {
       programContent
       programImage {
+        alt
+        gatsbyImageData
+        id
+        image {
+          gatsbyImageData
+        }
+        url
+      }
+      programPhotos {
         alt
         gatsbyImageData
         id

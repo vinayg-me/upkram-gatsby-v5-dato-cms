@@ -338,6 +338,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       programShortDescription: String
       programTitle: String
       programImage: HomepageImage
+      programPhotos: [HomepageImage]
       listOfKeyStatistics: [KeyStatistic]
       slug: String
     }
@@ -764,12 +765,14 @@ exports.createSchemaCustomization = async ({ actions }) => {
       subTitle: String
     }
     
+    
     type DatoCmsProgram implements Node & Program @dontInfer {
       id: ID!
       programContent: String
       programShortDescription: String
       programTitle: String
       programImage: HomepageImage
+      programPhotos: [HomepageImage]
       listOfKeyStatistics: [KeyStatistic]
       slug: String
     }

@@ -14,6 +14,7 @@ export type Program = {
     programShortDescription: String;
     programTitle: String;
     programImage: HomepageImage;
+    programPhotos?: [HomepageImage];
     slug: String;
 }
 export interface HomepageOurProgramProps {
