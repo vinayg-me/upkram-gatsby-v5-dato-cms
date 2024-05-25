@@ -5,26 +5,29 @@
   overflow: hidden;
 }
 
-.images-container {
+.film-strip-images-container {
   display: flex;
   transition: transform 0.3s ease;
   width: 100%;
 }
 
-.carousel-item {
+.film-strip-carousel-item {
   flex: 0 0 calc(100% / 4); /* Default for desktop */
   opacity: 0;
   transition: opacity 0.3s ease;
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
-.carousel-item.visible {
+.film-strip-carousel-item.visible {
   opacity: 1;
   display: block;
   margin-left: 4px;
   margin-right: 4px;
 }
 
-.carousel-image {
+.film-strip-carousel-image {
   width: 100%;
   height: auto;
   max-height: 200px; /* Adjust based on your requirement */
@@ -53,13 +56,13 @@
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .carousel-item {
+  .film-strip-carousel-item {
     flex: 0 0 calc(100% / 2);
   }
 }
 
 @media (max-width: 768px) {
-  .carousel-item {
+  .film-strip-carousel-item {
     flex: 0 0 100%;
   }
 }

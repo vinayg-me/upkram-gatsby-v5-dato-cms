@@ -25,13 +25,13 @@ const FilmStripCarousel: React.FC<FilmStripCarouselProps> = ({ images }) => {
       <button className="nav-button left" onClick={handlePrevClick}>
         &lt;
       </button>
-      <div className="images-container">
+      <div className="film-strip-images-container">
         {images
           .concat(images.slice(0, getVisibleImagesCount()))
           .map((image, index) => (
             <div
               key={image.id}
-              className={`carousel-item ${
+              className={`film-strip-carousel-item ${
                 index >= activeIndex &&
                 index < activeIndex + getVisibleImagesCount()
                   ? "visible"
@@ -41,7 +41,7 @@ const FilmStripCarousel: React.FC<FilmStripCarouselProps> = ({ images }) => {
               <GatsbyImage
                 image={image.gatsbyImageData}
                 alt={image.alt}
-                className="carousel-image"
+                className="film-strip-carousel-image"
               />
             </div>
           ))}
