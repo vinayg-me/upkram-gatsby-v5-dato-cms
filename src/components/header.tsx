@@ -99,6 +99,7 @@ export default function Header() {
       document.body.style.overflowY = "visible"
     }
   }, [isOpen])
+  console.log("🚀 ~ Header ~ isOpen:", isOpen)
 
   return (
     <header>
