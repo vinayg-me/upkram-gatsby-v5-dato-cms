@@ -6,3 +6,6 @@ public
 dist
 .DS_Store
 .history
+
+# Local Netlify folder
+.netlify

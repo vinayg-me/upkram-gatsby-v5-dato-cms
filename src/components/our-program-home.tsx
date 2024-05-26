@@ -77,6 +77,7 @@ export const query = graphql`
           programContent
           programShortDescription
           programTitle
+          slug
           programImage {
             alt
             id
