@@ -18,6 +18,7 @@ import {
   desktopHeaderNavWrapper,
   mobileHeaderNavWrapper,
   mobileNavSVGColorWrapper,
+  navGroupListWrapper
 } from "./header.css"
 import NavItemGroup, { NavItemGroupNavItem } from "./nav-item-group"
 import BrandLogo from "./brand-logo"
@@ -171,7 +172,7 @@ export default function Header() {
           <nav>
             <FlexList responsive variant="stretch">
               {navItems?.map((navItem) => (
-                <li key={navItem.id}>
+                <li key={navItem.id} className={navItem.navItemType === "Group" && navGroupListWrapper}>
                   {navItem.navItemType === "Group" ? (
                     <NavItemGroup
                       name={navItem.name}

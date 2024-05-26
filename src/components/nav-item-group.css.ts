@@ -70,6 +70,12 @@ export const navLinkListWrapper = styleVariants({
     navLinkListWrapperBase,
     {
       "@media": {
+        [media.smallMobile]: {
+          width: '100%'
+        },
+        [media.mobile]: {
+          width: '100%'
+        },
         [media.tabletUp]: {
           animation: "zoomInUp 0.15s ease-in-out",
         },
@@ -93,9 +99,23 @@ export const navLinkListWrapperInner = style({
   paddingLeft: theme.space[4],
   paddingBottom: theme.space[3],
   "@media": {
-    [media.small]: {
+    [media.smallMobile]: {
       paddingLeft: 0,
+      paddingBottom: 0,
       alignItems: "center",
+      display: 'flex',
+      flexDirection: 'column',
+      alignContent: 'center',
+      justifyContent: 'center'
+    },
+    [media.mobile]: {
+      paddingLeft: 0,
+      paddingBottom: 0,
+      alignItems: "center",
+      display: 'flex',
+      flexDirection: 'column',
+      alignContent: 'center',
+      justifyContent: 'center'
     },
   },
 })
@@ -115,22 +135,30 @@ export const navIcon = style({
 export const navLinkListLink = style([
   mobileNavLink,
   {
+    padding: theme.space[2],
+    margin: 0,
+    color: "inherit",
+    fontSize: theme.fontSizes[2],
+    fontWeight: theme.fontWeights.normal,
+    borderRadius: theme.radii.button,
     "@media": {
       [media.small]: {
-        padding: theme.space[2],
-        margin: 0,
-        color: "inherit",
-        fontSize: theme.fontSizes[2],
-        fontWeight: theme.fontWeights.bold,
-        borderRadius: theme.radii.button,
         ":hover": {
           background: theme.colors.muted,
-          color: "inherit",
+          color: theme.colors.white,
         },
       },
     },
+    ":focus": {
+      background: "none",
+      color: "inherit",
+    },
+    ":active": {
+      background: "none",
+      color: "inherit",
+    },
   },
-])
+]);
 
 export const navLinkDescription = style({
   display: "none",
