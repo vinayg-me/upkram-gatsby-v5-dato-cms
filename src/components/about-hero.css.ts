@@ -21,4 +21,5 @@ export const aboutHeroText = style({
 
 export const aboutHeroImage = style({
   width: "100%",
+  maxHeight: "650px"
 })
