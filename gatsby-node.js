@@ -408,6 +408,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       emailAddress: String
       phoneNumbers: String
       address: String
+      fieldAddress: String
       copyright: String
       entityPayload: JSON
     }
@@ -945,6 +946,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       socialLinks: [SocialLink]
       emailAddress: String
       address: String
+      fieldAddress: String
       phoneNumbers: String
       copyright: String
       originalId: String

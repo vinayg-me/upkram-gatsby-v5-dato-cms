@@ -8,6 +8,7 @@ import {
   MapPin,
   Mail,
   Linkedin,
+  Briefcase
 } from "react-feather"
 import {
   Container,
@@ -28,31 +29,32 @@ import { theme } from "../theme.css"
 import * as styles from "./footer.css"
 
 const socialMedia = {
-  TWITTER: {
-    url: "https://twitter.com",
-    name: "Twitter",
-    icon: <Twitter color={theme.colors.white} />,
-  },
-  FACEBOOK: {
-    url: "https://facebook.com",
-    name: "Facebook",
-    icon: <Facebook color={theme.colors.white} />,
+  LINKEDIN: {
+    url: "https://www.linkedin.com/",
+    name: "LinkedIn",
+    icon: <Linkedin color={theme.colors.white} />
   },
   INSTAGRAM: {
     url: "https://instagram.com",
     name: "Instagram",
     icon: <Instagram color={theme.colors.white} />,
   },
+  FACEBOOK: {
+    url: "https://facebook.com",
+    name: "Facebook",
+    icon: <Facebook color={theme.colors.white} />,
+  },
+  TWITTER: {
+    url: "https://twitter.com",
+    name: "Twitter",
+    icon: <Twitter color={theme.colors.white} />,
+  },
   YOUTUBE: {
     url: "https://youtube.com",
     name: "YouTube",
     icon: <Youtube color={theme.colors.white} />,
   },
-  LINKEDIN: {
-    url: "https://www.linkedin.com/",
-    name: "LinkedIn",
-    icon: <Linkedin color={theme.colors.white} />
-  }
+  
 }
 
 const getSocialURL = ({ service, username }) => {
@@ -79,6 +81,7 @@ interface FooterData {
       socialLinks: { id: string; service: string; username: string }[]
       emailAddress: string
       address: string
+      fieldAddress: string
       footerCtaText: string
       footerCtaButton: HomepageLink[]
     }
@@ -109,6 +112,7 @@ export default function Footer() {
           }
           emailAddress
           address
+          fieldAddress
           footerCtaText
           footerCtaButton {
             href
@@ -119,7 +123,7 @@ export default function Footer() {
     }
   `)
 
-  const { links, meta, socialLinks, copyright, emailAddress, address, footerCtaText, footerCtaButton } = data.layout.footer
+  const { links, meta, socialLinks, copyright, emailAddress, address, fieldAddress, footerCtaText, footerCtaButton } = data.layout.footer
 
   return (
     <Box as="footer" paddingY={4} background="dark">
@@ -139,6 +143,7 @@ export default function Footer() {
           <Flex variant="column" className={styles.SecondCol}>
             <Text variant="body" className={styles.FooterTitle} as="p">GET IN TOUCH</Text>
             <Text variant="small" className={styles.FooterText} as="p"><MapPin size={24} className={styles.FooterIcons} />{address}</Text>
+            <Text variant="small" className={styles.FooterText} as="p"><Briefcase size={40} className={styles.FooterIcons} />{fieldAddress} (Field Office)</Text>
             <Text variant="small" as="p" className={styles.FooterText}><Mail size={24} className={styles.FooterIcons} />{emailAddress}</Text>
             <Text variant="body" className={styles.FooterTitle} as="p">FOLLOW US</Text>
             <FlexList>
