@@ -46,7 +46,7 @@ export default function AboutUsOurVolunteer({ id, title, listOfVolunteer }: Abou
                 <StyledTitle text={title} n={1} style={{
                     fontSize: theme.customFontSizes[2]
                 }} />
-                <FlexList gap={3} variant="responsive" alignItems="spaceBetween">
+                <FlexList gap={3} variant="responsive" alignItems="center">
                     {listOfVolunteer.map((teamBlock: TeamMember) => (
                         <li key={teamBlock.id}>
                             <TeamBlock {...teamBlock} />
