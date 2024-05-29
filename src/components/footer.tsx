@@ -143,7 +143,7 @@ export default function Footer() {
           <Flex variant="column" className={styles.SecondCol}>
             <Text variant="body" className={styles.FooterTitle} as="p">GET IN TOUCH</Text>
             <Text variant="small" className={styles.FooterText} as="p"><MapPin size={24} className={styles.FooterIcons} />{address}</Text>
-            <Text variant="small" className={styles.FooterText} as="p"><Briefcase size={40} className={styles.FooterIcons} />{fieldAddress} (Field Office)</Text>
+            <Text variant="small" className={styles.FooterText} as="p"><Briefcase size={40} className={styles.FooterIcons} />{fieldAddress}</Text>
             <Text variant="small" as="p" className={styles.FooterText}><Mail size={24} className={styles.FooterIcons} />{emailAddress}</Text>
             <Text variant="body" className={styles.FooterTitle} as="p">FOLLOW US</Text>
             <FlexList>

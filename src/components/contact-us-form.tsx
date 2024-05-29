@@ -4,7 +4,7 @@ import * as styles from "./contact-us-form.css"
 import * as footerStyles from "./footer.css"
 import * as globalStyles from "./ui.css"
 import { graphql, useStaticQuery } from "gatsby";
-import { MapPin, Mail, PhoneCall } from "react-feather";
+import { MapPin, Mail, PhoneCall, Briefcase } from "react-feather";
 
 type FieldType = {
     label: string;
@@ -20,13 +20,14 @@ export default function ContactUsForm() {
             footer {
                 emailAddress
                 address
+                fieldAddress
                 phoneNumbers
             }
         }
         }
     `)
 
-    const { emailAddress, address, phoneNumbers } = data.layout.footer;
+    const { emailAddress, address, fieldAddress, phoneNumbers } = data.layout.footer;
 
     const FieldComponent = ({ label, type, name }: FieldType) => {
         return (
@@ -54,6 +55,8 @@ export default function ContactUsForm() {
                     <Text variant="body" className={footerStyles.FooterTitle} as="p">GET IN TOUCH</Text>
                     <Space size={4} />
                     <Text variant="small" className={footerStyles.FooterText} as="p"><MapPin size={24} className={footerStyles.FooterIcons} />{address}</Text>
+                    <Space size={4} />
+                    <Text variant="small" className={footerStyles.FooterText} as="p"><Briefcase size={40} className={footerStyles.FooterIcons} />{fieldAddress}</Text>
                     <Space size={4} />
                     <Text variant="small" as="p" className={footerStyles.FooterText}><Mail size={24} className={footerStyles.FooterIcons} />{emailAddress}</Text>
                     <Space size={4} />
