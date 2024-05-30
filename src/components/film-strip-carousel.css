@@ -1,0 +1,68 @@
+.film-strip-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.film-strip-images-container {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.film-strip-carousel-item {
+  flex: 0 0 calc(100% / 4); /* Default for desktop */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.film-strip-carousel-item.visible {
+  opacity: 1;
+  display: block;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.film-strip-carousel-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Adjust based on your requirement */
+  object-fit: contain;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.nav-button.left {
+  left: 10px;
+}
+
+.nav-button.right {
+  right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .film-strip-carousel-item {
+    flex: 0 0 calc(100% / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .film-strip-carousel-item {
+    flex: 0 0 100%;
+  }
+}

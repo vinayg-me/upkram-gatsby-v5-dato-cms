@@ -14,6 +14,14 @@ export const desktopHeaderNavWrapper = style({
   },
 })
 
+export const navGroupListWrapper = style({
+  "@media": {
+    [media.tabletUp]: {
+      alignContent: 'center',
+    },
+  },
+})
+
 const mobileHeaderNavWrapperBase = style({
   display: "block",
   position: "relative",

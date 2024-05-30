@@ -338,6 +338,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       programShortDescription: String
       programTitle: String
       programImage: HomepageImage
+      programPhotos: [HomepageImage]
+      listOfKeyStatistics: [KeyStatistic]
       slug: String
     }
 
@@ -406,6 +408,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       emailAddress: String
       phoneNumbers: String
       address: String
+      fieldAddress: String
       copyright: String
       entityPayload: JSON
     }
@@ -751,12 +754,27 @@ exports.createSchemaCustomization = async ({ actions }) => {
       focusAreaItems: [FocusAreaBlock]
     }
 
+    interface KeyStatistic implements Node {
+      id: ID!
+      heading: String
+      subTitle: String
+    }
+
+    type DatoCmsProgramKeyStatistic implements Node & KeyStatistic @dontInfer {
+      id: ID!
+      heading: String
+      subTitle: String
+    }
+    
+    
     type DatoCmsProgram implements Node & Program @dontInfer {
       id: ID!
       programContent: String
       programShortDescription: String
       programTitle: String
       programImage: HomepageImage
+      programPhotos: [HomepageImage]
+      listOfKeyStatistics: [KeyStatistic]
       slug: String
     }
 
@@ -928,6 +946,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       socialLinks: [SocialLink]
       emailAddress: String
       address: String
+      fieldAddress: String
       phoneNumbers: String
       copyright: String
       originalId: String

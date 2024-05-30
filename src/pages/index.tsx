@@ -47,7 +47,7 @@ export default function Homepage(props: HomepageProps) {
             listOfHomePageHeroes.push(<Component key={id} {...(componentProps as any)} />)
           }
           if(listOfHomePageHeroes.length === homePageBlocksCount[blocktype]) {
-            return <Carousel children={listOfHomePageHeroes} interval={20000} />
+            return <Carousel children={listOfHomePageHeroes} interval={10000} />
           }
 
         } else {

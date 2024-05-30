@@ -14,6 +14,7 @@ export type Program = {
     programShortDescription: String;
     programTitle: String;
     programImage: HomepageImage;
+    programPhotos?: [HomepageImage];
     slug: String;
 }
 export interface HomepageOurProgramProps {
@@ -76,6 +77,7 @@ export const query = graphql`
           programContent
           programShortDescription
           programTitle
+          slug
           programImage {
             alt
             id
