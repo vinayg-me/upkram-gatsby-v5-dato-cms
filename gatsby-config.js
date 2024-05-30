@@ -32,7 +32,7 @@ module.exports = {
         // These can be imported once ESM support lands
         background_color: "#ffffff",
         theme_color: "#db3000",
-        icon: "src/favicon.png",
+        icon: "src/square_logo.jpg",
       },
     },
   ],
