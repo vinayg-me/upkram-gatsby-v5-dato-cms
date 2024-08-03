@@ -12,3 +12,15 @@ export const HeadingStyle = style({
         }
     },
 })
+
+export const DonatePageHeadingStyle = style({
+    color: theme.colors.text,
+    fontSize: theme.fontSizes[4],
+    fontWeight: theme.fontWeights.semibold,
+    textAlign: "center",
+    "@media": {
+        [media.smallMobile]: {
+            fontSize: theme.fontSizes[2],
+        }
+    },
+})

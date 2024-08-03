@@ -2,9 +2,9 @@ import * as React from "react"
 import Layout from "../components/layout"
 import SEOHead from "../components/head"
 import { useEffect } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import { Section, Container } from "../components/ui"
 import * as styles from "../components/about-hero.css"
+import * as titleStyles from "../utils/StyleTitle.css"
 
 export default function About() {
   useEffect(() => {
@@ -23,6 +23,11 @@ export default function About() {
             alt="A kitten"
             className={styles.aboutHeroImage}
           />
+          <p className={titleStyles.DonatePageHeadingStyle}>
+            {" "}
+            Your support will ensure nurturing the expression of children to
+            build agency and bridge the educational inequity
+          </p>
         </Container>
       </Section>
       <div
