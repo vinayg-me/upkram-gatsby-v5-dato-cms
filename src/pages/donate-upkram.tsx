@@ -1,9 +1,10 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import SEOHead from "../components/head"
-import { Script } from "gatsby"
 import { useEffect } from "react"
-
+import { StaticImage } from "gatsby-plugin-image"
+import { Section, Container } from "../components/ui"
+import * as styles from "../components/about-hero.css"
 
 export default function About() {
   useEffect(() => {
@@ -15,6 +16,15 @@ export default function About() {
   }, [])
   return (
     <Layout>
+      <Section>
+        <Container width="wide">
+          <img
+            src="https://www.datocms-assets.com/102566/1721446081-donate-now-hero.jpeg"
+            alt="A kitten"
+            className={styles.aboutHeroImage}
+          />
+        </Container>
+      </Section>
       <div
         id="danamojo-script"
         dangerouslySetInnerHTML={{
