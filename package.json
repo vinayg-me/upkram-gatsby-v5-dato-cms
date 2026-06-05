@@ -35,7 +35,10 @@
     "react-dom": "^18.0.0",
     "react-feather": "^2.0.9",
     "react-swipeable": "^7.0.1",
-    "sharp": "^0.30.5"
+    "sharp": "^0.33.0"
+  },
+  "resolutions": {
+    "sharp": "^0.33.0"
   },
   "devDependencies": {
     "chalk": "^4.1.0",
